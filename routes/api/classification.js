@@ -5,7 +5,6 @@ const { check, validationResult } = require("express-validator");
 
 const Classification = require('../../models/Classification');
 
-
 // @route   POST api/classification
 // @desc    Create classification
 // @access  Public
@@ -30,14 +29,12 @@ router.post(
   }
 );
 
-
 // @route   GET api/classification
 // @desc    GET all classification
 // @access  Public
 router.get("/", async (req, res) => {
   try {
     const classification = await Classification.find().sort({ date: -1 });
-    console.log(classification)
     res.json(classification);
   } catch (err) {
     console.error(err.message);
