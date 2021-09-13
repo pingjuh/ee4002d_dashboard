@@ -19,7 +19,10 @@ class sensor(Thread):
         while True:
             fake_data = {"sensorsReading":[random.randint(0,255) for i in range(16)], "date":datetime.datetime.now()}
             collection.insert_one(fake_data)
-            sleep(0.02) 
+            sleep(0.02)
+
+
+
 
 class classification(Thread):
     def __init__(self):
