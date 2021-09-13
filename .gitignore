@@ -1,5 +1,5 @@
 node_modules/
-fake_sensor_data.py
 config/default.json
 .cache/
 dist/
+fake_data/mongoURI.py
