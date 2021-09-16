@@ -1,23 +1,61 @@
 import './index.css';
-import { ReactComponent as BellIcon } from './icons/bell.svg';
+import io from 'socket.io-client';
+import {
+  Line,
+  LineChart,
+  XAxis,
+  YAxis
+} from 'recharts';
+
 import { ReactComponent as CaretIcon } from './icons/caret.svg';
 import { ReactComponent as PlusIcon } from './icons/plus.svg';
-import { ReactComponent as CogIcon } from './icons/cog.svg';
 import { ReactComponent as ChevronIcon } from './icons/chevron.svg';
 import { ReactComponent as ArrowIcon } from './icons/arrow.svg';
 import { ReactComponent as BoltIcon } from './icons/bolt.svg';
 
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef, Fragment } from 'react';
 import { CSSTransition } from 'react-transition-group';
 
+
 function App() {
+  
   return (
-    <Navbar>
-      <NavItem icon={<PlusIcon />} />
-      <NavItem icon={<CaretIcon />}>
-        <DropdownMenu></DropdownMenu>
-      </NavItem>
-    </Navbar>
+    <Fragment>
+      <Navbar>
+        <NavItem icon={<PlusIcon />} />
+        <NavItem icon={<CaretIcon />}>
+          <DropdownMenu></DropdownMenu>
+        </NavItem>
+      </Navbar>
+        <Graph></Graph>
+    </Fragment>
+  );
+}
+
+function Graph(props) {
+  const PORT = process.env.PORT || 5000;
+  const socket = io(`http://localhost:${PORT}`, {transports: ['websocket', 'polling']});
+  const [data, setData] = useState([]);
+  // Listen for a sensor event and update the state
+  useEffect(() => {
+    socket.on('sensor', newData => {
+      setData(previousData => {
+        const data = [...previousData, newData];
+        // Moving effect
+        if (data.length === 100) data.shift();
+        return data;
+      })
+    });
+  }, []);
+  return (
+    <Fragment>
+      <h1>Sensor reading: Channel 1</h1>
+      <LineChart width={1000} height={600} data={data}>
+        <XAxis dataKey="time" />
+        <YAxis/>
+        <Line dataKey="sensorReading" />
+      </LineChart>
+    </Fragment>
   );
 }
 
