@@ -1,5 +1,3 @@
 node_modules/
 config/default.json
-.cache/
-dist/
 fake_data/mongoURI.py
