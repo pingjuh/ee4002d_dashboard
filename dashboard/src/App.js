@@ -33,11 +33,11 @@ function App() {
 }
 
 function Graph(props) {
-  const PORT = process.env.PORT || 5000;
-  const socket = io(`http://localhost:${PORT}`, {transports: ['websocket', 'polling']});
   const [data, setData] = useState([]);
   // Listen for a sensor event and update the state
   useEffect(() => {
+    const PORT = process.env.PORT || 5000;
+    const socket = io(`http://localhost:${PORT}`, { transports: ['websocket', 'polling'] });
     socket.on('sensor', newData => {
       setData(previousData => {
         const data = [...previousData, newData];
