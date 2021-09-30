@@ -1,8 +1,8 @@
-import React, { useState, useEffect, Fragment } from 'react';
+import React, { useState, useEffect } from 'react';
 import io from 'socket.io-client';
 import { Line, LineChart, XAxis, YAxis } from 'recharts';
 
-const Graph = () => {
+const Graph = ({ channel }) => {
   const [data, setData] = useState([]);
   // Listen for a sensor event and update the state
   useEffect(() => {
@@ -17,17 +17,28 @@ const Graph = () => {
       })
     });
   }, []);
+
+  // Transform data from of type [...{sensorsReading: Array(16)}] to channelData of type [....{sensorsReading: number}] 
+
+  let channelData = [];
+  try {
+    data.forEach(element => {
+      channelData.push({'sensorsReading':element["sensorsReading"][channel]})
+    })
+  } catch (error) {
+    console.log(error);
+  }
+
   return (
-    <Fragment>
-      <h1>Sensor reading: Channel 1</h1>
-      <LineChart width={1000} height={600} data={data}>
-        <XAxis dataKey="time" />
+    <div className="container">
+      <h1>Sensor reading: Channel {channel}</h1>
+      <LineChart width={1000} height={600} data={channelData}>
+        <XAxis/>
         <YAxis/>
-        <Line dataKey="sensorReading" />
+        <Line dataKey="sensorsReading" />
       </LineChart>
-    </Fragment>
+    </div>
   );
 }
-
 
 export default Graph;

@@ -10,9 +10,15 @@ const DropdownMenu = () => {
   const [activeMenu, setActiveMenu] = useState('main');
   const [menuHeight, setMenuHeight] = useState(null);
   const dropdownRef = useRef(null);
+  // Generate 16 channels
+  let channels = [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15];
+  let channelList = [];
+  channels.forEach((channel,index)=>{
+    channelList.push( <DropdownItem key={index} leftIcon={<BoltIcon />} link={`/graph/ch${channel}`} title={`Channel ${channel}`}/>)
+  })
 
   useEffect(() => {
-    setMenuHeight(dropdownRef.current?.firstChild.offsetHeight)
+    setMenuHeight(dropdownRef.current?.firstChild.offsetHeight);
   }, [])
 
   const calcHeight = el => {
@@ -46,22 +52,9 @@ const DropdownMenu = () => {
           <DropdownItem goToMenu="main" leftIcon={<ArrowIcon />} setActiveMenu={setActiveMenu}>
             Graph
           </DropdownItem>
-          <DropdownItem leftIcon={<BoltIcon />} title="Channel 0"/>
-          <DropdownItem leftIcon={<BoltIcon />} title="Channel 1"/>
-          <DropdownItem leftIcon={<BoltIcon />} title="Channel 2"/>
-          <DropdownItem leftIcon={<BoltIcon />} title="Channel 3"/>
-          <DropdownItem leftIcon={<BoltIcon />} title="Channel 4"/>
-          <DropdownItem leftIcon={<BoltIcon />} title="Channel 5"/>
-          <DropdownItem leftIcon={<BoltIcon />} title="Channel 6"/>
-          <DropdownItem leftIcon={<BoltIcon />} title="Channel 7"/>
-          <DropdownItem leftIcon={<BoltIcon />} title="Channel 8"/>
-          <DropdownItem leftIcon={<BoltIcon />} title="Channel 9"/>
-          <DropdownItem leftIcon={<BoltIcon />} title="Channel 10"/>
-          <DropdownItem leftIcon={<BoltIcon />} title="Channel 11"/>
-          <DropdownItem leftIcon={<BoltIcon />} title="Channel 12"/>
-          <DropdownItem leftIcon={<BoltIcon />} title="Channel 13"/>
-          <DropdownItem leftIcon={<BoltIcon />} title="Channel 14"/>
-          <DropdownItem leftIcon={<BoltIcon />} title="Channel 15"/>
+
+          {channelList}
+          
         </div>
       </CSSTransition>
 

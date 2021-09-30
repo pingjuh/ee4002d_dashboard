@@ -21,19 +21,16 @@ app.get('/', (req, res) => res.send('API Running!'));
 app.use('/api/sensor', require('./routes/api/sensors'));
 app.use('/api/classification', require('./routes/api/classification'));
 
-let x = 0;
-
 // Listen for socket connections
 io.on('connection', socket => {
   setInterval(() => {
-    (async (x) => {
+    (async () => {
       try {
         const sensor = await Sensor.findOne().sort({ date: -1 });
-        const ch1 = sensor.toObject().sensorsReading[0]
-        console.log(ch1)
+        const channels = sensor.toObject().sensorsReading
+        // console.log(channels)
         socket.emit('sensor', {
-          time: x++,
-          sensorReading: ch1
+          sensorsReading: channels
         });
       } catch(err) {
         console.log(err);
