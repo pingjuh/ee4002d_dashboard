@@ -15,7 +15,7 @@ const DropdownMenu = () => {
   let channels = [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15];
   let channelList = [];
   channels.forEach((channel)=>{
-    channelList.push( <DropdownItem key={channel} leftIcon={<BoltIcon />} link={`/graph/ch${channel}`} title={`Channel ${channel}`}/>)
+    channelList.push( <DropdownItem key={channel} leftIcon={<BoltIcon />} link={`/graph/${channel}`} title={`Channel ${channel}`}/>)
   })
 
   useEffect(() => {

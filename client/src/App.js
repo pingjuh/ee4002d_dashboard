@@ -1,7 +1,7 @@
 import React from 'react';
 import Navbar from './components/layout/Navbar';
 import Home from './components/pages/Home';
-import Channels from './components/channels/Channels';
+import Channel from './components/channels/Channel';
 import NotFound from './components/pages/NotFound';
 
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
@@ -15,9 +15,7 @@ const App = () => {
       <div className='container'>
         <Switch> 
           <Route exact path='/' component={Home} />
-
-          <Channels/>
-
+          <Route exact path="/graph/:channelID" component={Channel} />
           <Route component={NotFound} />
         </Switch>
       </div>
