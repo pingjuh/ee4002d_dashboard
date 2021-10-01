@@ -5,10 +5,10 @@ const SensorsSchema = new mongoose.Schema({
     type: [Number],
     required: true
   },
-  date: {
+  inserted: {
     type: Date,
     default: Date.now
   }
 });
 
-module.exports = Sensor = mongoose.model('sensor', SensorsSchema);
+module.exports = Sensor = mongoose.model('cachedsensor', SensorsSchema);

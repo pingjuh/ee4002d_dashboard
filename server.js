@@ -26,9 +26,9 @@ io.on('connection', socket => {
   setInterval(() => {
     (async () => {
       try {
-        const sensor = await Sensor.findOne().sort({ date: -1 });
+        const sensor = await Sensor.findOne().sort({ inserted: -1 });
         const channels = sensor.toObject().sensorsReading
-        // console.log(channels)
+        console.log(channels)
         socket.emit('sensor', {
           sensorsReading: channels
         });

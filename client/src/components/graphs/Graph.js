@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import io from 'socket.io-client';
 import { Line, LineChart, XAxis, YAxis } from 'recharts';
+import PropTypes from 'prop-types';
+
 
 const Graph = ({ channel }) => {
   const [data, setData] = useState([]);
@@ -16,6 +18,9 @@ const Graph = ({ channel }) => {
         return data;
       })
     });
+    return () => {
+      socket.disconnect();
+    }
   }, []);
 
   // Transform data from of type [...{sensorsReading: Array(16)}] to channelData of type [....{sensorsReading: number}] 
@@ -32,7 +37,7 @@ const Graph = ({ channel }) => {
   return (
     <div className="container">
       <h1>Sensor reading: Channel {channel}</h1>
-      <LineChart width={1000} height={600} data={channelData}>
+      <LineChart width={500} height={300} data={channelData}>
         <XAxis/>
         <YAxis/>
         <Line dataKey="sensorsReading" />
@@ -40,5 +45,9 @@ const Graph = ({ channel }) => {
     </div>
   );
 }
+
+Graph.propTypes = {
+  channel : PropTypes.number.isRequired
+};
 
 export default Graph;

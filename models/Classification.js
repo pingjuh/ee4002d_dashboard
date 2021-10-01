@@ -5,10 +5,10 @@ const ClassificationSchema = new mongoose.Schema({
     type: Number,
     required: true
   },
-  date: {
+  inserted: {
     type: Date,
     default: Date.now
   }
 });
 
-module.exports = Classification = mongoose.model('classification', ClassificationSchema);
+module.exports = Classification = mongoose.model('cachedclassification', ClassificationSchema);

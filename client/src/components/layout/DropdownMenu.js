@@ -10,11 +10,12 @@ const DropdownMenu = () => {
   const [activeMenu, setActiveMenu] = useState('main');
   const [menuHeight, setMenuHeight] = useState(null);
   const dropdownRef = useRef(null);
+  
   // Generate 16 channels
   let channels = [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15];
   let channelList = [];
-  channels.forEach((channel,index)=>{
-    channelList.push( <DropdownItem key={index} leftIcon={<BoltIcon />} link={`/graph/ch${channel}`} title={`Channel ${channel}`}/>)
+  channels.forEach((channel)=>{
+    channelList.push( <DropdownItem key={channel} leftIcon={<BoltIcon />} link={`/graph/ch${channel}`} title={`Channel ${channel}`}/>)
   })
 
   useEffect(() => {

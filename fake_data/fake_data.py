@@ -15,9 +15,13 @@ class sensor(Thread):
     def run(self):
         cluster = MongoClient(mongoURI())
         db = cluster["EE4002D_dashboard"]
-        collection = db["sensors"]
+        collection = db["cachedsensors"]
+        # Create an expiring (TTL) collection
+        # The background task that removes expired documents runs every 60 seconds. As a result, documents may remain in a collection   
+        # during the period between the expiration of the document and the running of the background task.
+        collection.create_index("inserted", expireAfterSeconds = 60)
         while True:
-            fake_data = {"sensorsReading":[random.randint(0,255) for i in range(16)], "date":datetime.datetime.now()}
+            fake_data = {"sensorsReading":[random.randint(0,255) for i in range(16)], "inserted":datetime.datetime.utcnow()}
             collection.insert_one(fake_data)
             sleep(0.02)
 
@@ -33,9 +37,10 @@ class classification(Thread):
     def run(self):
         cluster = MongoClient(mongoURI())
         db = cluster["EE4002D_dashboard"]
-        collection = db["classifications"]
+        collection = db["cachedclassifications"]
+        collection.create_index("inserted", expireAfterSeconds = 60)
         while True:
-            fake_data = {"classification":random.randint(0,15), "date":datetime.datetime.now()}
+            fake_data = {"classification":random.randint(0,15), "inserted":datetime.datetime.utcnow()}
             collection.insert_one(fake_data)
             sleep(5)
       
