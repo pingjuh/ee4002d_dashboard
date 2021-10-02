@@ -12,11 +12,9 @@ const DropdownMenu = () => {
   const dropdownRef = useRef(null);
   
   // Generate 16 channels
-  let channels = [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15];
-  let channelList = [];
-  channels.forEach((channel)=>{
-    channelList.push( <DropdownItem key={channel} leftIcon={<BoltIcon />} link={`/graph/${channel}`} title={`Channel ${channel}`}/>)
-  })
+  let channelIDs = [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15];
+  let dropDownItemList = channelIDs.map(channelID => <DropdownItem key={channelID} leftIcon={<BoltIcon />} link={`/graph/${channelID}`} title={`Channel ${channelID}`}/> );
+
 
   useEffect(() => {
     setMenuHeight(dropdownRef.current?.firstChild.offsetHeight);
@@ -54,7 +52,7 @@ const DropdownMenu = () => {
             Graph
           </DropdownItem>
 
-          {channelList}
+          {dropDownItemList}
           
         </div>
       </CSSTransition>

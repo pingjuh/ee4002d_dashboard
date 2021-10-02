@@ -4,7 +4,7 @@ import { Line, LineChart, XAxis, YAxis } from 'recharts';
 import PropTypes from 'prop-types';
 
 
-const Graph = ({ channel }) => {
+const Graph = ({ channelID, width, height }) => {
   const [data, setData] = useState([]);
   // Listen for a sensor event and update the state
   useEffect(() => {
@@ -28,26 +28,28 @@ const Graph = ({ channel }) => {
   let channelData = [];
   try {
     data.forEach(element => {
-      channelData.push({'sensorsReading':element["sensorsReading"][channel]})
+      channelData.push({'sensorsReading':element["sensorsReading"][channelID]})
     })
   } catch (error) {
     console.log(error);
   }
 
   return (
-    <div className="container">
-      <h1>Sensor reading: Channel {channel}</h1>
-      <LineChart width={500} height={300} data={channelData}>
+      <LineChart width={width} height={height} data={channelData}>
         <XAxis/>
         <YAxis/>
         <Line dataKey="sensorsReading" />
       </LineChart>
-    </div>
   );
 }
 
+Graph.defaultProps = {
+  width: 500,
+  height: 300
+}
+
 Graph.propTypes = {
-  channel : PropTypes.number.isRequired
+  channelID : PropTypes.number.isRequired
 };
 
 export default Graph;
