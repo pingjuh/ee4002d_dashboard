@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react'
+import React from 'react'
 import Graph from './Graph';
 
 const GraphCard = ({ channelID }) => {

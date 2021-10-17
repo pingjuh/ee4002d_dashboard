@@ -3,3 +3,4 @@ fake_data/__pycache__
 client/node_modules
 client/.DS_store
 .DS_store
+client/src/components/pages/LineChart.js

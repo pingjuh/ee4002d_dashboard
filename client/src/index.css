@@ -486,6 +486,10 @@ table th {
   transition: all var(--speed) ease;
 }
 
+#d3demo{
+	width: 100vw;
+	height: 50vh;
+}
 
 /* Mobile Styles */
 @media (max-width: 700px) {

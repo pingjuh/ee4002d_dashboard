@@ -12,6 +12,7 @@ const Channel = () => {
     if (channelID < 0 || channelID > 15 || isNaN(channelID)) {
       history.push('/not-found');
     }
+    // eslint-disable-next-line
   }, []);
 
   return (
