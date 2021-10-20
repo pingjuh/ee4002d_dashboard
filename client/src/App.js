@@ -8,13 +8,13 @@ import LineChart from './components/pages/LineChart';
 import Alert from './components/layout/Alert';
 
 import AlertState from './context/alert/AlertState'
-import DataState from './context/data/DataState';
+import SensorState from './context/sensor/SensorState';
 
 import './index.css';
 
 const App = () => {
   return (
-    <DataState>
+    <SensorState>
       <AlertState>
         <Router>
           <Navbar/>
@@ -29,7 +29,7 @@ const App = () => {
           </div>
         </Router>
       </AlertState>
-    </DataState>
+    </SensorState>
   );
 }
 

@@ -1,6 +1,6 @@
 import { GET_DATA, SET_CONNECTED} from '../types';
 
-const dataReducer = (state, action) => {
+const sensorReducer = (state, action) => {
   switch (action.type) {
     case GET_DATA:
       return {
@@ -17,4 +17,4 @@ const dataReducer = (state, action) => {
   }
 };
 
-export default dataReducer;
+export default sensorReducer;

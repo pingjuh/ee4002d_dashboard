@@ -1,16 +1,16 @@
 import React, { useEffect, useReducer } from 'react';
-import DataContext from './dataContext';
-import DataReducer from './dataReducer';
+import SensorContext from './sensorContext';
+import SensorReducer from './sensorReducer';
 import { GET_DATA, SET_CONNECTED } from '../types';
 import io from 'socket.io-client';
 
-const DataState = props => {
+const SensorState = props => {
   const initialState = {
     data: [],
     connected: false
   };
 
-  const [state, dispatch] = useReducer(DataReducer, initialState);
+  const [state, dispatch] = useReducer(SensorReducer, initialState);
 
   // Get the latest sensors reading from server
   // data["sensorsReading"] is of type [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15]
@@ -33,15 +33,15 @@ const DataState = props => {
   const setConnnected = () => dispatch({ type: SET_CONNECTED });
 
   return (
-    <DataContext.Provider
+    <SensorContext.Provider
       value={{
         data: state.data,
         connected: state.connected
       }}
     >
       {props.children}
-    </DataContext.Provider>
+    </SensorContext.Provider>
   );
 };
 
-export default DataState;
+export default SensorState;

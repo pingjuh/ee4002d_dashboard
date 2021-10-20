@@ -1,17 +1,25 @@
-import React, { useContext, useEffect, useState} from 'react';
-import { Line, LineChart, XAxis, YAxis } from 'recharts';
+import React, { useContext, useEffect, useState } from 'react';
+import {
+  LineChart,
+  Line,
+  XAxis,
+  YAxis,
+  CartesianGrid,
+  Tooltip,
+  Legend,
+} from "recharts";
 import PropTypes from 'prop-types';
 import AlertContext from '../../context/alert/alertContext';
-import DataContext from '../../context/data/dataContext';
+import SensorContext from '../../context/sensor/sensorContext';
 import Spinner from '../layout/Spinner';
 
 const Graph = ({ channelID, width, height }) => {
-  const alertContext = useContext(AlertContext);
-  const dataContext = useContext(DataContext);
+  const { setAlert, removeAlert } = useContext(AlertContext);
+  const sensorContext = useContext(SensorContext);
   const [data, setData] = useState([]);
   const [channel, setChannel] = useState();
 
-  const channelData = dataContext.data[channelID];
+  const channelData = sensorContext.data[channelID];
   const channelDataObj = {'sensorsReading' : channelData};
 
   useEffect(() => {
@@ -21,18 +29,41 @@ const Graph = ({ channelID, width, height }) => {
      // Moving effect
     while (data.length > 99) data.shift();
      // check for connection
-    if (dataContext.connected) alertContext.setAlert('Connected', 'success');
-    else  alertContext.setAlert('Disconnected', 'danger');
+    if (sensorContext.connected) setAlert('Connected', 'success');
+    else  setAlert('Disconnected', 'danger');
+    
+    return () => {
+      removeAlert();
+    }
     // eslint-disable-next-line
-  },[channelData, dataContext.connected]);
+  },[channelData, sensorContext.connected]);
 
-  if (!dataContext.connected) return <Spinner/>;
-  
+  if (!sensorContext.connected) return <Spinner/>;
+
+
   return (
-      <LineChart width={width} height={height} data={data}>
-        <XAxis/>
+      <LineChart 
+        width={width}
+        height={height} 
+        data={data}
+        margin={{
+          top: 0,
+          right: 10,
+          left: 0,
+          bottom: 10,
+        }}
+      >
+        <XAxis interval={9} />
         <YAxis/>
-        <Line dataKey='sensorsReading' />
+        <CartesianGrid strokeDasharray="3 3" />
+        <Tooltip />
+        <Legend verticalAlign="bottom" height={1} />
+        <Line
+              type="monotone"
+              dataKey="sensorsReading"
+              stroke="#A9A9A9"
+              // activeDot={{ r: 8 }}
+        />
       </LineChart>
   );
 }

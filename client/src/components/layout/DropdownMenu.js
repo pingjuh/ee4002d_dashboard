@@ -35,7 +35,7 @@ const DropdownMenu = () => {
         unmountOnExit
         onEnter={calcHeight}>
         <div className="menu">
-          <DropdownItem leftIcon="📖" title="Dissertation"/>
+          <DropdownItem leftIcon="📖" title="Dissertation" link={'/dissertation'}/>
           <DropdownItem leftIcon="📈" rightIcon={<ChevronIcon />} goToMenu="channels" title="Channels" setActiveMenu={setActiveMenu}/>
           <DropdownItem leftIcon="🎖️" rightIcon={<ChevronIcon />} goToMenu="results" title="Results" setActiveMenu={setActiveMenu}/>
         </div>
@@ -67,7 +67,7 @@ const DropdownMenu = () => {
           <DropdownItem goToMenu="main" leftIcon={<ArrowIcon />} setActiveMenu={setActiveMenu}>
             Results
           </DropdownItem>
-          <DropdownItem leftIcon="🔢" title="Classification"/>
+          <DropdownItem leftIcon="🔢" title="Classification" link={'/classification'}/>
         </div>
       </CSSTransition>
 
