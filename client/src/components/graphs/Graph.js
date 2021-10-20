@@ -15,37 +15,42 @@ import Spinner from '../layout/Spinner';
 
 const Graph = ({ channelID, width, height }) => {
   const { setAlert, removeAlert } = useContext(AlertContext);
-  const sensorContext = useContext(SensorContext);
-  const [data, setData] = useState([]);
+  const { data, connected } = useContext(SensorContext);
+  const [result, setResult] = useState([]);
   const [channel, setChannel] = useState();
+  let sensor, time, resultObj;
 
-  const channelData = sensorContext.data[channelID];
-  const channelDataObj = {'sensorsReading' : channelData};
+  if (connected) {
+    sensor = data["sensorsReading"][channelID];
+    time = data["inserted"].slice(14,23) // min:sec:millisec
+    resultObj = {
+      sensor,
+      time
+    }
+  }
+
 
   useEffect(() => {
-    setData(prevData => [...prevData, channelDataObj]);
-    if (channelID !== channel) setData(() => []);
+    connected ? setAlert('Connected', 'success') : setAlert('Disconnected', 'danger');
+    setResult(prevResult => [...prevResult, resultObj]);
+    if (channelID !== channel) setResult(() => []);
     setChannel(() => channelID);
      // Moving effect
-    while (data.length > 99) data.shift();
-     // check for connection
-    if (sensorContext.connected) setAlert('Connected', 'success');
-    else  setAlert('Disconnected', 'danger');
-    
+    while (result.length > 99) result.shift();
+  
     return () => {
       removeAlert();
     }
     // eslint-disable-next-line
-  },[channelData, sensorContext.connected]);
+  },[sensor, connected]);
 
-  if (!sensorContext.connected) return <Spinner/>;
-
+  if (!connected) return <Spinner/>;
 
   return (
       <LineChart 
         width={width}
         height={height} 
-        data={data}
+        data={result}
         margin={{
           top: 0,
           right: 10,
@@ -53,16 +58,16 @@ const Graph = ({ channelID, width, height }) => {
           bottom: 10,
         }}
       >
-        <XAxis interval={9} />
+        <XAxis interval={45} dataKey='time' />
         <YAxis/>
         <CartesianGrid strokeDasharray="3 3" />
         <Tooltip />
         <Legend verticalAlign="bottom" height={1} />
         <Line
-              type="monotone"
-              dataKey="sensorsReading"
-              stroke="#A9A9A9"
-              // activeDot={{ r: 8 }}
+          type="monotone"
+          dataKey="sensor"
+          stroke="#A9A9A9"
+          // activeDot={{ r: 8 }}
         />
       </LineChart>
   );

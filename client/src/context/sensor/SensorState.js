@@ -20,7 +20,7 @@ const SensorState = props => {
     socket.on('sensor', data => {
       dispatch({
         type: GET_DATA,
-        payload: data["sensorsReading"]
+        payload: data
       })
       setConnnected();
     });

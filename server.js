@@ -8,6 +8,7 @@ const io = require('socket.io')(server, {
 });
 
 const Sensor = require('./models/Sensor');
+const { channel } = require('diagnostics_channel');
 
 // Connect Database
 connectDB();
@@ -27,10 +28,11 @@ io.on('connection', socket => {
     (async () => {
       try {
         const sensor = await Sensor.findOne().sort({ inserted: -1 });
-        const channels = sensor.toObject().sensorsReading
+        const channels = sensor.toObject()
         console.log(channels)
         socket.emit('sensor', {
-          sensorsReading: channels
+          sensorsReading: channels.sensorsReading,
+          inserted: channels.inserted
         });
       } catch(err) {
         console.log(err);
