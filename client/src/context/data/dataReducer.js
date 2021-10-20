@@ -1,12 +1,17 @@
-import { GET_DATA} from '../types';
+import { GET_DATA, SET_CONNECTED} from '../types';
 
 const dataReducer = (state, action) => {
   switch (action.type) {
     case GET_DATA:
       return {
+        ...state,
         data : action.payload
-      }
-      
+      };
+    case SET_CONNECTED:
+      return {
+        ...state,
+        connected : true
+      };
     default:
       return state;
   }

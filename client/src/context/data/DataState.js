@@ -1,12 +1,13 @@
 import React, { useEffect, useReducer } from 'react';
 import DataContext from './dataContext';
 import DataReducer from './dataReducer';
-import { GET_DATA } from '../types';
+import { GET_DATA, SET_CONNECTED } from '../types';
 import io from 'socket.io-client';
 
 const DataState = props => {
   const initialState = {
-    data: []
+    data: [],
+    connected: false
   };
 
   const [state, dispatch] = useReducer(DataReducer, initialState);
@@ -21,16 +22,21 @@ const DataState = props => {
         type: GET_DATA,
         payload: data["sensorsReading"]
       })
+      setConnnected();
     });
     return () => {
       socket.disconnect();
     }
   }, []);
 
+  // Set Loading
+  const setConnnected = () => dispatch({ type: SET_CONNECTED });
+
   return (
     <DataContext.Provider
       value={{
-        data: state.data
+        data: state.data,
+        connected: state.connected
       }}
     >
       {props.children}

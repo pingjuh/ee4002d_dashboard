@@ -23,7 +23,7 @@ const Graph = ({ channelID, width, height }) => {
   },[channelData]);
 
   // check if no data
-  // if (dataContext.connected && alertContext.alert === null) alertContext.setAlert('Connected', 'danger');
+  if (!dataContext.connected && !alertContext.alert) alertContext.setAlert('Disconnected', 'danger');
 
   return (
       <LineChart width={width} height={height} data={data}>
