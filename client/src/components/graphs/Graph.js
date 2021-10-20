@@ -3,6 +3,7 @@ import { Line, LineChart, XAxis, YAxis } from 'recharts';
 import PropTypes from 'prop-types';
 import AlertContext from '../../context/alert/alertContext';
 import DataContext from '../../context/data/dataContext';
+import Spinner from '../layout/Spinner';
 
 const Graph = ({ channelID, width, height }) => {
   const alertContext = useContext(AlertContext);
@@ -20,13 +21,13 @@ const Graph = ({ channelID, width, height }) => {
      // Moving effect
     while (data.length > 99) data.shift();
      // check for connection
-    if (!dataContext.connected) alertContext.setAlert('Disconnected', 'danger');
-    else alertContext.setAlert('Connected', 'success');
-    console.log(dataContext.connected);
+    if (dataContext.connected) alertContext.setAlert('Connected', 'success');
+    else  alertContext.setAlert('Disconnected', 'danger');
     // eslint-disable-next-line
   },[channelData, dataContext.connected]);
 
-
+  if (!dataContext.connected) return <Spinner/>;
+  
   return (
       <LineChart width={width} height={height} data={data}>
         <XAxis/>
