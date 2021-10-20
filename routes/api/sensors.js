@@ -34,7 +34,7 @@ router.post(
 // @access  Public
 router.get("/", async (req, res) => {
   try {
-    const sensor = await Sensor.find().sort({ date: -1 });
+    const sensor = await Sensor.find().sort({ inserted: -1 });
     res.json(sensor);
   } catch (err) {
     console.error(err.message);

@@ -8,25 +8,28 @@ import LineChart from './components/pages/LineChart';
 import Alert from './components/layout/Alert';
 
 import AlertState from './context/alert/AlertState'
+import DataState from './context/data/DataState';
 
 import './index.css';
 
 const App = () => {
   return (
-    <AlertState>
-      <Router>
-        <Navbar/>
-        <div className='container'>
-          <Alert/>
-          <Switch> 
-            <Route exact path='/' component={Home} />
-            <Route exact path='/linechart' component={LineChart} />
-            <Route exact path="/graph/:channelID" component={Channel} />
-            <Route component={NotFound} />
-          </Switch>
-        </div>
-      </Router>
-    </AlertState>
+    <DataState>
+      <AlertState>
+        <Router>
+          <Navbar/>
+          <div className='container'>
+            <Alert/>
+            <Switch> 
+              <Route exact path='/' component={Home} />
+              <Route exact path='/linechart' component={LineChart} />
+              <Route exact path="/channels/:channelID" component={Channel} />
+              <Route component={NotFound} />
+            </Switch>
+          </div>
+        </Router>
+      </AlertState>
+    </DataState>
   );
 }
 

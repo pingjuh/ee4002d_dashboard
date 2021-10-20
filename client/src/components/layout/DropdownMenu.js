@@ -13,7 +13,7 @@ const DropdownMenu = () => {
   
   // Generate 16 channels
   let channelIDs = [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15];
-  let dropDownItemList = channelIDs.map(channelID => <DropdownItem key={channelID} leftIcon={<BoltIcon />} link={`/graph/${channelID}`} title={`Channel ${channelID}`}/> );
+  let dropDownItemList = channelIDs.map(channelID => <DropdownItem key={channelID} leftIcon={<BoltIcon />} link={`/channels/${channelID}`} title={`Channel ${channelID}`}/> );
 
 
   useEffect(() => {
@@ -36,20 +36,20 @@ const DropdownMenu = () => {
         onEnter={calcHeight}>
         <div className="menu">
           <DropdownItem leftIcon="📖" title="Dissertation"/>
-          <DropdownItem leftIcon="📈" rightIcon={<ChevronIcon />} goToMenu="graph" title="Graph" setActiveMenu={setActiveMenu}/>
+          <DropdownItem leftIcon="📈" rightIcon={<ChevronIcon />} goToMenu="channels" title="Channels" setActiveMenu={setActiveMenu}/>
           <DropdownItem leftIcon="🎖️" rightIcon={<ChevronIcon />} goToMenu="results" title="Results" setActiveMenu={setActiveMenu}/>
         </div>
       </CSSTransition>
 
       <CSSTransition
-        in={activeMenu === 'graph'}
+        in={activeMenu === 'channels'}
         timeout={400}
         classNames="menu-secondary"
         unmountOnExit
         onEnter={calcHeight}>
         <div className="menu">
           <DropdownItem goToMenu="main" leftIcon={<ArrowIcon />} setActiveMenu={setActiveMenu}>
-            Graph
+            Channel
           </DropdownItem>
 
           {dropDownItemList}

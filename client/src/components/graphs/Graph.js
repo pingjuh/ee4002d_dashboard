@@ -1,47 +1,35 @@
-import React, { useState, useEffect, useContext } from 'react';
-import io from 'socket.io-client';
+import React, { useContext, useEffect, useState} from 'react';
 import { Line, LineChart, XAxis, YAxis } from 'recharts';
 import PropTypes from 'prop-types';
 import AlertContext from '../../context/alert/alertContext';
+import DataContext from '../../context/data/dataContext';
 
 const Graph = ({ channelID, width, height }) => {
-  const [data, setData] = useState([]);
   const alertContext = useContext(AlertContext);
-  // Listen for a sensor event and update the state
-  useEffect(() => {
-    const PORT = process.env.PORT || 5000;
-    const socket = io(`http://localhost:${PORT}`, { transports: ['websocket', 'polling'] });
-    socket.on('sensor', newData => {
-      setData(previousData => {
-        const data = [...previousData, newData];
-        // Moving effect
-        if (data.length === 100) data.shift();
-        return data;
-      })
-    });
-    return () => {
-      socket.disconnect();
-    }
-  }, []);
+  const dataContext = useContext(DataContext);
+  const [data, setData] = useState([]);
+  const [channel, setChannel] = useState();
 
-  // Transform data from of type [...{sensorsReading: Array(16)}] to channelData of type [....{sensorsReading: number}] 
-  let channelData = [];
-  try {
-    data.forEach(element => {
-      channelData.push({'sensorsReading':element["sensorsReading"][channelID]})
-    })
-  } catch (error) {
-    console.log(error);
-  }
+  const channelData = dataContext.data[channelID];
+  const channelDataObj = {'sensorsReading' : channelData};
+
+  useEffect(() => {
+    setData(prevData => [...prevData, channelDataObj]);
+    if (channelID !== channel) setData(() => []);
+    setChannel(() => channelID);
+     // Moving effect
+    while (data.length > 99) data.shift();
+    // eslint-disable-next-line
+  },[channelData]);
 
   // check if no data
-  if (!channelData.length && alertContext.alert === null) alertContext.setAlert('No data', 'danger');
-  
+  // if (dataContext.connected && alertContext.alert === null) alertContext.setAlert('Connected', 'danger');
+
   return (
-      <LineChart width={width} height={height} data={channelData}>
+      <LineChart width={width} height={height} data={data}>
         <XAxis/>
         <YAxis/>
-        <Line dataKey="sensorsReading" />
+        <Line dataKey='sensorsReading' />
       </LineChart>
   );
 }

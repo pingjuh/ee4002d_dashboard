@@ -34,7 +34,7 @@ router.post(
 // @access  Public
 router.get("/", async (req, res) => {
   try {
-    const classification = await Classification.find().sort({ date: -1 });
+    const classification = await Classification.find().sort({ inserted: -1 });
     res.json(classification);
   } catch (err) {
     console.error(err.message);
