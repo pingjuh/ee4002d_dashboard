@@ -19,11 +19,13 @@ const Graph = ({ channelID, width, height }) => {
     setChannel(() => channelID);
      // Moving effect
     while (data.length > 99) data.shift();
+     // check for connection
+    if (!dataContext.connected) alertContext.setAlert('Disconnected', 'danger');
+    else alertContext.setAlert('Connected', 'success');
+    console.log(dataContext.connected);
     // eslint-disable-next-line
-  },[channelData]);
+  },[channelData, dataContext.connected]);
 
-  // check if no data
-  if (!dataContext.connected && !alertContext.alert) alertContext.setAlert('Disconnected', 'danger');
 
   return (
       <LineChart width={width} height={height} data={data}>

@@ -14,4 +14,4 @@ const Alert = () => {
   )
 }
 
-export default Alert
+export default Alert;
