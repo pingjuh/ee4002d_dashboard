@@ -1,12 +1,16 @@
 import React from 'react'
 import GraphCard from '../graphs/GraphCard';
+import Barchart from '../barchart/Barchart';
 
 const Home = () => {
   let channelIDs = [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15];
   return (
-    <div style={graphStyle}>
-      {channelIDs.map(channelID => <GraphCard key={channelID} channelID={channelID}/>)}
-    </div>
+    <>
+      <Barchart/>
+      <div style={graphStyle}>
+        {channelIDs.map(channelID => <GraphCard key={channelID} channelID={channelID}/>)}
+      </div>
+    </>
   );
 }
 

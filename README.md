@@ -18,7 +18,7 @@ Builds the app for production to the `build` folder.<br>
 ---
 
 ## Set IP address for socket.io-client
-In client/src/components/graphs/Graph.js, change localhost "io(`http://localhost:${PORT}`, {transports: ['websocket', 'polling']})" to the IP address of API server
+In client/src/context/sensor/SensorState.js, change IP to the IP address of API server, that is your public IP
 
 ---
 

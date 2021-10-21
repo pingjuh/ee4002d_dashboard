@@ -22,13 +22,12 @@ const Graph = ({ channelID, width, height }) => {
 
   if (connected) {
     sensor = data["sensorsReading"][channelID];
-    time = data["inserted"].slice(14,23) // min:sec:millisec
+    time = data["inserted"].slice(14,22) // min:sec:millisec
     resultObj = {
       sensor,
       time
     }
   }
-
 
   useEffect(() => {
     connected ? setAlert('Connected', 'success') : setAlert('Disconnected', 'danger');
@@ -58,8 +57,8 @@ const Graph = ({ channelID, width, height }) => {
           bottom: 10,
         }}
       >
-        <XAxis interval={45} dataKey='time' />
-        <YAxis/>
+        <XAxis interval={44} dataKey='time' />
+        <YAxis domain={[0, 255]}/>
         <CartesianGrid strokeDasharray="3 3" />
         <Tooltip />
         <Legend verticalAlign="bottom" height={1} />

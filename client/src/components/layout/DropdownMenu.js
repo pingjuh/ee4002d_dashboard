@@ -36,7 +36,7 @@ const DropdownMenu = () => {
         onEnter={calcHeight}>
         <div className="menu">
           <DropdownItem leftIcon="📖" title="Dissertation" link={'/dissertation'}/>
-          <DropdownItem leftIcon="📈" rightIcon={<ChevronIcon />} goToMenu="channels" title="Channels" setActiveMenu={setActiveMenu}/>
+          <DropdownItem leftIcon="📺" rightIcon={<ChevronIcon />} goToMenu="channels" title="Channels" setActiveMenu={setActiveMenu}/>
           <DropdownItem leftIcon="🎖️" rightIcon={<ChevronIcon />} goToMenu="results" title="Results" setActiveMenu={setActiveMenu}/>
         </div>
       </CSSTransition>

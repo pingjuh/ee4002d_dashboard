@@ -4,7 +4,6 @@ import Navbar from './components/layout/Navbar';
 import Home from './components/pages/Home';
 import Channel from './components/channels/Channel';
 import NotFound from './components/pages/NotFound';
-import LineChart from './components/pages/LineChart';
 import Alert from './components/layout/Alert';
 
 import AlertState from './context/alert/AlertState'
@@ -22,7 +21,6 @@ const App = () => {
             <Alert/>
             <Switch> 
               <Route exact path='/' component={Home} />
-              <Route exact path='/linechart' component={LineChart} />
               <Route exact path="/channels/:channelID" component={Channel} />
               <Route component={NotFound} />
             </Switch>

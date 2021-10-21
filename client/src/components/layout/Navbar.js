@@ -2,13 +2,14 @@ import React from 'react';
 import NavItem from './NavItem';
 import DropdownMenu from './DropdownMenu';
 import { ReactComponent as CaretIcon } from '../../icons/caret.svg';
-import { ReactComponent as PlusIcon } from '../../icons/plus.svg';
+import { ReactComponent as Bluetooth } from '../../icons/bluetooth.svg';
 
 const Navbar = () => (
   <nav className="navbar">
     <ul className="navbar-nav">
       <NavItem icon="🏠" link="/"/>
-      <NavItem icon={<PlusIcon />} link="connect" />
+      <NavItem icon="📊" link="barchart"/>
+      <NavItem icon={<Bluetooth />} link="connect" />
       <NavItem icon={<CaretIcon />} >
         <DropdownMenu/>
       </NavItem>
