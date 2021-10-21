@@ -7,8 +7,7 @@ import { ReactComponent as Bluetooth } from '../../icons/bluetooth.svg';
 const Navbar = () => (
   <nav className="navbar">
     <ul className="navbar-nav">
-      <NavItem icon="🏠" link="/"/>
-      <NavItem icon="📊" link="barchart"/>
+      <NavItem icon="📊" link="/"/>
       <NavItem icon={<Bluetooth />} link="connect" />
       <NavItem icon={<CaretIcon />} >
         <DropdownMenu/>
