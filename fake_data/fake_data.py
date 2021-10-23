@@ -23,7 +23,7 @@ class sensor(Thread):
         while True:
             fake_data = {"sensorsReading":[random.randint(0,255) for i in range(16)], "inserted":datetime.datetime.utcnow()}
             collection.insert_one(fake_data)
-            sleep(0.05)
+            sleep(0.010)
 
 
 

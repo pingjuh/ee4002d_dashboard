@@ -2,13 +2,11 @@ import React, { useState ,useEffect ,useContext } from 'react'
 import { 
   BarChart, 
   Bar, 
-  Cell, 
   XAxis, 
   YAxis, 
   CartesianGrid, 
   Tooltip, 
-  Legend, 
-  ResponsiveContainer 
+  Legend
 } from 'recharts';
 import SensorContext from '../../context/sensor/sensorContext';
 import Spinner from '../layout/Spinner';

@@ -46,29 +46,29 @@ const Graph = ({ channelID, width, height }) => {
   if (!connected) return <Spinner/>;
 
   return (
-      <LineChart 
-        width={width}
-        height={height} 
-        data={result}
-        margin={{
-          top: 0,
-          right: 10,
-          left: 0,
-          bottom: 10,
-        }}
-      >
-        <XAxis interval={44} dataKey='time' />
-        <YAxis domain={[0, 255]}/>
-        <CartesianGrid strokeDasharray="3 3" />
-        <Tooltip />
-        <Legend verticalAlign="bottom" height={1} />
-        <Line
-          type="monotone"
-          dataKey="sensor"
-          stroke="#A9A9A9"
-          // activeDot={{ r: 8 }}
-        />
-      </LineChart>
+    <LineChart 
+      width={width}
+      height={height} 
+      data={result}
+      margin={{
+        top: 0,
+        right: 10,
+        left: 0,
+        bottom: 10,
+      }}
+    >
+      <XAxis interval={44} dataKey='time' />
+      <YAxis domain={[0, 255]}/>
+      <CartesianGrid strokeDasharray="3 3" />
+      <Tooltip />
+      <Legend verticalAlign="bottom" height={1} />
+      <Line
+        type="monotone"
+        dataKey="sensor"
+        stroke="#A9A9A9"
+        // activeDot={{ r: 8 }}
+      />
+    </LineChart>
   );
 }
 
