@@ -9,7 +9,7 @@ const Channel = () => {
   const history = useHistory();
 
   useEffect(() => {
-    if (channelID < 0 || channelID > 15 || isNaN(channelID)) {
+    if (channelID < 0 || channelID > 11 || isNaN(channelID)) {
       history.push('/not-found');
     }
     // eslint-disable-next-line

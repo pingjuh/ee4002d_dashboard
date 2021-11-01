@@ -21,9 +21,9 @@ class sensor(Thread):
         # during the period between the expiration of the document and the running of the background task.
         collection.create_index("inserted", expireAfterSeconds = 60)
         while True:
-            fake_data = {"sensorsReading":[random.randint(0,255) for i in range(16)], "inserted":datetime.datetime.utcnow()}
+            fake_data = {"sensorsReading":[random.randint(0,255) for i in range(12)], "inserted":datetime.datetime.utcnow()}
             collection.insert_one(fake_data)
-            sleep(0.010)
+            sleep(0.10)
 
 
 

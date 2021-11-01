@@ -11,8 +11,8 @@ const DropdownMenu = () => {
   const [menuHeight, setMenuHeight] = useState(null);
   const dropdownRef = useRef(null);
   
-  // Generate 16 channels
-  let channelIDs = [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15];
+  // Generate 12 channels
+  let channelIDs = [0,1,2,3,4,5,6,7,8,9,10,11];
   let dropDownItemList = channelIDs.map(channelID => <DropdownItem key={channelID} leftIcon={<BoltIcon />} link={`/channels/${channelID}`} title={`Channel ${channelID}`}/> );
 
 

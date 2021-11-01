@@ -13,7 +13,7 @@ const SensorState = props => {
   const [state, dispatch] = useReducer(SensorReducer, initialState);
 
   // Get the latest sensors reading from server
-  // data["sensorsReading"] is of type [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15]
+  // data["sensorsReading"] is of type [0,1,2,3,4,5,6,7,8,9,10,11]
   useEffect(() => {
     const IP = 'localhost'
     const PORT = process.env.PORT || 5000;
