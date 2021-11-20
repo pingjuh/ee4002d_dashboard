@@ -4,6 +4,7 @@ import Paper from '@mui/material/Paper';
 import MultiGraph from '../graph/MultiGraph';
 import Barchart from '../barchart/Barchart';
 import Toolbar from '@mui/material/Toolbar';
+import Heatmap from '../heatmap/Heatmap';
 
 export default function Home() {
   return (
@@ -11,6 +12,7 @@ export default function Home() {
       <Container maxWidth="lg" sx={{ mt: 10, mb: 4 }}>
         <MultiGraph />
         <Barchart />
+        <Heatmap />
       </Container>
     </Toolbar>
   )
