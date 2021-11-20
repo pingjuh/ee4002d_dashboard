@@ -18,8 +18,6 @@ export default function Heatmap() {
     setResult(prevResult => sensors);
     // eslint-disable-next-line
   },[sensor0, connected]);
-
-  console.log(sensors);
   
   if (!connected) return <Spinner/>;
  

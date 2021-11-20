@@ -2,10 +2,14 @@
 
 > React app to display sensor array data and classification results.
 
+## Prerequisite
+node version: `>= 16.13.0`<br />
+npm version: `>= 8.1.0`
+
+---
+
 ## Usage
-
-### `npm install`
-
+### `npm i` in root and client folders
 ### `npm run dev`
 
 Runs the app in the development mode.<br>
@@ -26,3 +30,6 @@ In client/src/context/sensor/SensorState.js, change IP to the IP address of API 
 ``` bash
 python3 fake_data/fake_data.py
 ```
+
+## Dashboard
+![](/img/dashboard.png)
