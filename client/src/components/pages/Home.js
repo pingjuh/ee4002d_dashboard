@@ -11,7 +11,6 @@ export default function Home() {
     <Toolbar>   
       <Container maxWidth="lg" sx={{ mt: 10, mb: 4 }}>
         <MultiGraph />
-        <Barchart />
         <Heatmap />
       </Container>
     </Toolbar>

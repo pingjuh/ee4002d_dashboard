@@ -37,7 +37,6 @@ export default function MultiGraph () {
       time
     }
   }
-  console.log(resultObj);
   useEffect(() => {
     setResult(prevResult => [...prevResult, resultObj]);
      // Moving effect

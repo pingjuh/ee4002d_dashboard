@@ -1,29 +1,32 @@
-import React from 'react';
+import React, { useState ,useEffect ,useContext } from 'react'
 import ReactApexChart from 'react-apexcharts';
+import SensorContext from '../../context/sensor/sensorContext';
+import Spinner from '../layout/Spinner';
+import Title from '../layout/Title';
 
 export default function Heatmap() {
+  const { data, connected } = useContext(SensorContext);
+  const [result, setResult] = useState();
+  let sensor0, sensors;
+
+  if (connected) {
+    sensor0 = data["sensorsReading"][0];
+    sensors = data["sensorsReading"];
+  }
+
+  useEffect(() => {
+    setResult(prevResult => sensors);
+    // eslint-disable-next-line
+  },[sensor0, connected]);
+
+  console.log(sensors);
+  
+  if (!connected) return <Spinner/>;
+ 
   const series = [
     {
-      name: "Cases",
-      data: [
-        555,
-        12038,
-        69030,
-        88369,
-        167466,
-        932638,
-        2055423,
-        3343777,
-        3845718,
-      ],
-    },
-    {
-      name: "Recovered",
-      data: [28, 284, 9394, 42710, 76026, 191853, 501538, 1029651, 1255481],
-    },
-    {
-      name: "Deaths",
-      data: [17, 259, 1666, 2996, 6472, 49675, 140658, 238619, 269567],
+      name: "Channels",
+      data: result
     },
   ];
   const options = {
@@ -34,49 +37,23 @@ export default function Heatmap() {
       curve: "smooth",
     },
     xaxis: {
-      type: "datetime",
+      type: "category",
       categories: [
-        "1/22/20",
-        "2/1/20",
-        "2/15/20",
-        "3/1/20",
-        "3/15/20",
-        "4/1/20",
-        "4/15/20",
-        "5/1/20",
-        "5/7/20",
+       0,1,2,3,4,5,6,7,8,9,10,11
       ],
-    },
-    tooltip: {
-      x: {
-        format: "dd/MM/yy",
-      },
-    },
+    }
   };
 
   return (
-    <div
-      style={{
-        backgroundColor: "white",
-        textAlign: "center",
-      }}
-    >
-      <br />
-      <h2>COVID-19 Global Graphs</h2>
-      <br />
-      <ReactApexChart
-        options={options}
-        series={series}
-        type="area"
-        height={350}
-      />
-      <br />
+    <>
+      <Title> Heatmap</Title>
       <ReactApexChart
         options={options}
         series={series}
         type="heatmap"
-        height={350}
+        height={400}
+        width={1300}
       />
-    </div>
+    </>
   );
 }

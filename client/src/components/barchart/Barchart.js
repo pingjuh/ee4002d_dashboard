@@ -30,7 +30,6 @@ const Barchart = () => {
 
   useEffect(() => {
     setResult(prevResult => resultObj);
-
     // eslint-disable-next-line
   },[sensor0, connected]);
   
