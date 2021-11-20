@@ -25,7 +25,7 @@ class sensor(Thread):
             fake_data = {"sensorsReading":[random.randint(0,255) for i in range(12)], "inserted":datetime.datetime.utcnow()}
             collection_cached.insert_one(fake_data)
             collection.insert_one(fake_data)
-            sleep(0.10)
+            sleep(0.050)
 
 
 

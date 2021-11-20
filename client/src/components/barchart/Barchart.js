@@ -10,6 +10,7 @@ import {
 } from 'recharts';
 import SensorContext from '../../context/sensor/sensorContext';
 import Spinner from '../layout/Spinner';
+import Title from '../layout/Title';
 
 const Barchart = () => {
   const { data, connected } = useContext(SensorContext);
@@ -29,33 +30,34 @@ const Barchart = () => {
 
   useEffect(() => {
     setResult(prevResult => resultObj);
-    return () => {
-    
-    }
+
     // eslint-disable-next-line
   },[sensor0, connected]);
   
   if (!connected) return <Spinner/>;
 
   return (
-    <BarChart
-      width={1000}
-      height={400}
-      data={result}
-      margin={{
-        top: 5,
-        right: 20,
-        left: 20,
-        bottom: 30,
-      }}
-      >
-      <CartesianGrid strokeDasharray="3 3" />
-      <XAxis dataKey="channel" padding={{ left: 10, right: 10 }} />
-      <YAxis domain={[0, 255]}/>
-      <Tooltip />
-      <Legend verticalAlign="bottom" height={1}/>
-      <Bar dataKey="sensor" fill="#8884d8" />
-    </BarChart>
+    <>
+      <Title> Activation</Title>
+      <BarChart
+        width={1300}
+        height={400}
+        data={result}
+        margin={{
+          top: 5,
+          right: 20,
+          left: 20,
+          bottom: 30,
+        }}
+        >
+        <CartesianGrid strokeDasharray="3 3" />
+        <XAxis dataKey="channel" padding={{ left: 10, right: 10 }} />
+        <YAxis domain={[0, 255]}/>
+        <Tooltip />
+        <Legend verticalAlign="bottom" height={1}/>
+        <Bar dataKey="sensor" fill="#8884d8" />
+      </BarChart>
+  </>
   )
 }
 

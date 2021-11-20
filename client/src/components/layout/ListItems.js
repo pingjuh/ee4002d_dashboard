@@ -8,6 +8,7 @@ import ListSubheader from '@mui/material/ListSubheader';
 import DashboardIcon from '@mui/icons-material/Dashboard';
 import BarChartIcon from '@mui/icons-material/BarChart';
 import AssignmentIcon from '@mui/icons-material/Assignment';
+import AutoGraphIcon from '@mui/icons-material/AutoGraph';
 import { useHistory, useLocation } from 'react-router-dom';
 
 const useStyles = makeStyles({
@@ -35,13 +36,13 @@ export default function MainListItems() {
       
       <ListItem 
         button
-        onClick={() => history.push('/reports')}  
-        className={location.pathname === '/reports' ? classes.active : ''}
+        onClick={() => history.push('/graph')}  
+        className={location.pathname === '/graph' ? classes.active : ''}
       >
         <ListItemIcon>
-          <BarChartIcon />
+          <AutoGraphIcon />
         </ListItemIcon>
-        <ListItemText primary="Reports" />
+        <ListItemText primary="Graphs" />
       </ListItem>
     </List>
   )

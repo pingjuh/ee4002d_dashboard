@@ -1,10 +1,11 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-import Channel from './components/channels/Channel';
+// import Channel from './components/channels/Channel';
 import NotFound from './components/pages/NotFound';
 import Alert from './components/layout/Alert';
 import Dashboard from './components/layout/Dashboard';
 import Home from './components/pages/Home';
+import Graph from './components/pages/Graph';
 import AlertState from './context/alert/AlertState'
 import SensorState from './context/sensor/SensorState';
 
@@ -19,7 +20,8 @@ const App = () => {
           <Alert/>
           <Switch> 
             <Route exact path='/' component={Home}/>
-            <Route exact path="/channels/:channelID" component={Channel} />
+            <Route exact path='/graph' component={Graph}/>
+            {/* <Route exact path="/channels/:channelID" component={Channel} /> */}
             <Route component={NotFound} />
           </Switch>
           </Dashboard>
