@@ -10,7 +10,6 @@ import {
 } from "recharts";
 import SensorContext from '../../context/sensor/sensorContext';
 import Spinner from '../layout/Spinner';
-import Title from '../layout/Title';
 
 export default function MultiGraph () {
   const { data, connected } = useContext(SensorContext);
@@ -42,13 +41,12 @@ export default function MultiGraph () {
      // Moving effect
     while (result.length > 99) result.shift();
     // eslint-disable-next-line
-  },[sensor0, connected]);
+  },[sensor0]);
 
-  if (!connected) return <Spinner/>;
+  if (!connected || !result) return <Spinner/>;
 
   return (
     <>
-      <Title> Sensors</Title>
       <LineChart 
         width={1200}
         height={400} 

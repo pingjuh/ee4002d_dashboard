@@ -16,7 +16,7 @@ export default function Heatmap( {orientation, rotate, height, width}) {
   useEffect(() => {
     setResult(prevResult => sensors);
     // eslint-disable-next-line
-  },[sensor0, connected]);
+  }, [sensor0]);
   
   if (!connected || !result) return <Spinner/>;
   

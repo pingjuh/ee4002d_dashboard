@@ -5,6 +5,7 @@ import Toolbar from '@mui/material/Toolbar';
 import Title from '../layout/Title';
 import MultiGraph from '../graph/MultiGraph';
 import Heatmap from '../heatmap/Heatmap';
+import Result from '../result/Result';
 
 export default function Home() {
   return (
@@ -23,6 +24,7 @@ export default function Home() {
                 height: 430
               }}
             >
+              <Title> Sensors</Title>
               <MultiGraph />
             </Paper>
           </Grid>
@@ -38,6 +40,7 @@ export default function Home() {
               }}
             >
               <Title> Result</Title>
+              <Result />
               
             </Paper>
           </Grid>
