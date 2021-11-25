@@ -44,7 +44,7 @@ const Graph = ({ channelID, width, height }) => {
     // eslint-disable-next-line
   },[sensor, connected]);
 
-  if (!connected) return <Spinner/>;
+  if (!connected || !result) return <Spinner/>;
 
   return (
     <>
@@ -61,7 +61,7 @@ const Graph = ({ channelID, width, height }) => {
         }}
       >
         <XAxis interval={44} dataKey='time' />
-        <YAxis domain={[0, 255]}/>
+        <YAxis domain={[0, 1023]}/>
         <CartesianGrid strokeDasharray="3 3" />
         <Tooltip />
         <Legend verticalAlign="bottom" height={1} />

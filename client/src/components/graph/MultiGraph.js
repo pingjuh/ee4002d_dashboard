@@ -50,7 +50,7 @@ export default function MultiGraph () {
     <>
       <Title> Sensors</Title>
       <LineChart 
-        width={1300}
+        width={1200}
         height={400} 
         data={result}
         margin={{
@@ -61,7 +61,7 @@ export default function MultiGraph () {
         }}
       >
         <XAxis interval={44} dataKey='time' />
-        <YAxis domain={[0, 255]}/>
+        <YAxis domain={[0, 1023]}/>
         <CartesianGrid strokeDasharray="3 3" />
         <Tooltip />
         <Legend verticalAlign="bottom" height={1} />
