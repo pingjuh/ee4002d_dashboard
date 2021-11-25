@@ -30,7 +30,7 @@ class sensor(Thread):
             data = [((int((256*np.sin(x)))+512)+i)%1024 for i in steps]
             data.append(classification)
             if count == 0:
-                classification = random.randint(0, 9)
+                classification = (classification+1)%10 
                 count = 1
             else:
                 count = (count+1)%50
