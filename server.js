@@ -8,7 +8,6 @@ const io = require('socket.io')(server, {
 });
 
 const Sensor = require('./models/Sensor');
-const { channel } = require('diagnostics_channel');
 
 // Connect Database
 connectDB();
@@ -20,7 +19,6 @@ app.get('/', (req, res) => res.send('API Running!'));
 
 // Define Routes
 app.use('/api/sensor', require('./routes/api/sensors'));
-app.use('/api/classification', require('./routes/api/classification'));
 
 // Listen for socket connections
 io.on('connection', socket => {
