@@ -10,6 +10,7 @@ import AssignmentIcon from '@mui/icons-material/Assignment';
 import AutoGraphIcon from '@mui/icons-material/AutoGraph';
 import BluetoothIcon from '@mui/icons-material/Bluetooth';
 import { useHistory, useLocation } from 'react-router-dom';
+import { connect, start } from '../bluetooth/Bluetooth';
 
 const useStyles = makeStyles({
   active : {
@@ -22,21 +23,32 @@ export default function MainListItems() {
   const location = useLocation(); 
   const classes = useStyles();
 
-  function getDeviceInfo() {
-    let options = {
-      acceptAllDevices: true,
-    }
-
-    console.log('Requesting Bluetooth Device...')
-    navigator.bluetooth.requestDevice(options).then(device => {
-      console.log('> Name: ' + device.name)
-    }).catch(error => {
-      console.log('Argh! ' + error)
-    })
-  }
-
   return (
     <List>
+      <ListItem
+        button
+        onClick={() => {
+          connect()
+        }}
+      >
+        <ListItemIcon>
+          <BluetoothIcon />
+        </ListItemIcon>
+        <ListItemText primary="Connect" />
+      </ListItem>
+
+      <ListItem
+        button
+        onClick={() => {
+          start()
+        }}
+      >
+        <ListItemIcon>
+          <BluetoothIcon />
+        </ListItemIcon>
+        <ListItemText primary="Start" />
+      </ListItem>
+
       <ListItem 
         button
         onClick={() => history.push('/')}
@@ -57,20 +69,7 @@ export default function MainListItems() {
           <AutoGraphIcon />
         </ListItemIcon>
         <ListItemText primary="Graphs" />
-      </ListItem>
-
-      <ListItem 
-        button
-        onClick={()=> {
-          getDeviceInfo()
-        }}  
-      >
-        <ListItemIcon>
-          <BluetoothIcon />
-        </ListItemIcon>
-        <ListItemText primary="Connect" />
-      </ListItem>
-      
+      </ListItem>      
     </List>
   )
 }

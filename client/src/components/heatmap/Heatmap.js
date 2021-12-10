@@ -110,7 +110,7 @@ export default function Heatmap( {orientation, rotate, height, width}) {
         colorScale: {
           ranges: [{
               from: 0,
-              to: 1023,
+              to: 255,
               color: '#008FFB'
             },
           ],

@@ -1,5 +1,5 @@
 const express = require("express");
-const config = require("config");
+// const config = require("config");
 const router = express.Router();
 const { check, validationResult } = require("express-validator");
 
@@ -10,7 +10,7 @@ const Sensor = require('../../models/Sensor');
 // @access  Public
 router.post(
   "/",
-  check("sensorReading", "Sensor reading is required").notEmpty(),
+  check("sensorsReading", "Sensor reading is required").notEmpty(),
   async (req, res) => {
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
@@ -18,7 +18,7 @@ router.post(
     }
     try {
       const newSensor = new Sensor({
-        sensorReading: req.body.sensorReading
+        sensorsReading: req.body.sensorsReading
       });
       const sensor = await newSensor.save();
       res.json(sensor);      

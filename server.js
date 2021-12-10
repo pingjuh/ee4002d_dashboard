@@ -8,6 +8,9 @@ const io = require('socket.io')(server, {
 });
 
 const Sensor = require('./models/Sensor');
+const cors = require('cors');
+app.use(cors());
+
 
 // Connect Database
 connectDB();
@@ -36,7 +39,7 @@ io.on('connection', socket => {
         console.log(err);
       }  
     })();
-  }, 100);
+  }, 300);
 });
 
 const PORT = process.env.PORT || 5000;

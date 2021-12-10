@@ -30,6 +30,10 @@ In client/src/context/sensor/SensorState.js, change IP to the IP address of API 
 ``` bash
 python3 fake_data/fake_data.py
 ```
+## Connecting to BLE Device
+Please use Google Chrome and enable "Experimental Web Platform features" on Chrome.
+chrome://flags/#enable-experimental-web-platform-features 
+set to enable
 
 ## Dashboard
 ![](/img/dashboard.png)
