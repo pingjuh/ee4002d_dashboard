@@ -8,6 +8,7 @@ import ListSubheader from '@mui/material/ListSubheader';
 import DashboardIcon from '@mui/icons-material/Dashboard';
 import AssignmentIcon from '@mui/icons-material/Assignment';
 import AutoGraphIcon from '@mui/icons-material/AutoGraph';
+import BluetoothIcon from '@mui/icons-material/Bluetooth';
 import { useHistory, useLocation } from 'react-router-dom';
 
 const useStyles = makeStyles({
@@ -20,6 +21,20 @@ export default function MainListItems() {
   const history = useHistory();
   const location = useLocation(); 
   const classes = useStyles();
+
+  function getDeviceInfo() {
+    let options = {
+      acceptAllDevices: true,
+    }
+
+    console.log('Requesting Bluetooth Device...')
+    navigator.bluetooth.requestDevice(options).then(device => {
+      console.log('> Name: ' + device.name)
+    }).catch(error => {
+      console.log('Argh! ' + error)
+    })
+  }
+
   return (
     <List>
       <ListItem 
@@ -43,6 +58,19 @@ export default function MainListItems() {
         </ListItemIcon>
         <ListItemText primary="Graphs" />
       </ListItem>
+
+      <ListItem 
+        button
+        onClick={()=> {
+          getDeviceInfo()
+        }}  
+      >
+        <ListItemIcon>
+          <BluetoothIcon />
+        </ListItemIcon>
+        <ListItemText primary="Connect" />
+      </ListItem>
+      
     </List>
   )
 }
