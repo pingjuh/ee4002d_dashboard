@@ -39,7 +39,7 @@ io.on('connection', socket => {
         console.log(err);
       }  
     })();
-  }, 300);
+  }, 200);
 });
 
 const PORT = process.env.PORT || 5000;

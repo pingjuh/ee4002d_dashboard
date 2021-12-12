@@ -38,7 +38,7 @@ const read = () => {
   return (bluetoothDeviceDetected ? Promise.resolve() : getDeviceInfo())
     .then(connectGATT)
     .then(_ => {
-      console.log('Reading UV Index...')
+      console.log('Reading...')
       return gattCharacteristic.readValue()
     })
     .catch(error => {
@@ -99,7 +99,7 @@ export const start = () => {
     })
 }
 
-const stop = () => {
+export const stop = () => {
   gattCharacteristic.stopNotifications()
     .then(_ => {
       console.log('Stop reading...')

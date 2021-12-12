@@ -8,9 +8,7 @@ import ListSubheader from '@mui/material/ListSubheader';
 import DashboardIcon from '@mui/icons-material/Dashboard';
 import AssignmentIcon from '@mui/icons-material/Assignment';
 import AutoGraphIcon from '@mui/icons-material/AutoGraph';
-import BluetoothIcon from '@mui/icons-material/Bluetooth';
 import { useHistory, useLocation } from 'react-router-dom';
-import { connect, start } from '../bluetooth/Bluetooth';
 
 const useStyles = makeStyles({
   active : {
@@ -25,30 +23,6 @@ export default function MainListItems() {
 
   return (
     <List>
-      <ListItem
-        button
-        onClick={() => {
-          connect()
-        }}
-      >
-        <ListItemIcon>
-          <BluetoothIcon />
-        </ListItemIcon>
-        <ListItemText primary="Connect" />
-      </ListItem>
-
-      <ListItem
-        button
-        onClick={() => {
-          start()
-        }}
-      >
-        <ListItemIcon>
-          <BluetoothIcon />
-        </ListItemIcon>
-        <ListItemText primary="Start" />
-      </ListItem>
-
       <ListItem 
         button
         onClick={() => history.push('/')}

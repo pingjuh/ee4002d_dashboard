@@ -14,11 +14,16 @@ import Badge from '@mui/material/Badge';
 import Link from '@mui/material/Link';
 import MenuIcon from '@mui/icons-material/Menu';
 import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
-import NotificationsIcon from '@mui/icons-material/Notifications';
-import { secondaryListItems } from './ListItems';
 import MainListItems from './ListItems';
+import { secondaryListItems } from './ListItems';
+import { connect, start, stop } from '../bluetooth/Bluetooth';
+import BluetoothIcon from '@mui/icons-material/Bluetooth';
+import PlayCircleFilledWhiteOutlinedIcon from '@mui/icons-material/PlayCircleFilledWhiteOutlined';
+import StopCircleOutlinedIcon from '@mui/icons-material/StopCircleOutlined';
+
 import AlertContext from '../../context/alert/alertContext';
 import SensorContext from '../../context/sensor/sensorContext';
+
 
 function Copyright(props) {
   return (
@@ -129,10 +134,28 @@ export default function Dashboard(props) {
             >
               Dashboard
             </Typography>
-            <IconButton color="inherit">
-              <Badge badgeContent={10} color="secondary">
-                <NotificationsIcon />
-              </Badge>
+            <IconButton 
+              color="inherit" 
+              onClick={()=>{
+                connect();
+              }}>
+              {/* <Badge color="secondary"> */}
+                <BluetoothIcon />
+              {/* </Badge> */}
+            </IconButton>
+            <IconButton
+              color="inherit"
+              onClick={() => {
+                start();
+              }}>
+              <PlayCircleFilledWhiteOutlinedIcon />           
+            </IconButton>
+            <IconButton
+              color="inherit"
+              onClick={() => {
+                stop();
+              }}>
+              <StopCircleOutlinedIcon />
             </IconButton>
           </Toolbar>
         </AppBar>
