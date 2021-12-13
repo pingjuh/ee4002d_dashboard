@@ -8,8 +8,6 @@ import Graph from './components/pages/Graph';
 import AlertState from './context/alert/AlertState'
 import SensorState from './context/sensor/SensorState';
 
-import './index.css';
-
 const App = () => {
   return (
     <SensorState>
