@@ -11,4 +11,4 @@ const SensorsSchema = new mongoose.Schema({
   }
 });
 
-module.exports = Sensor = mongoose.model('cachedsensor', SensorsSchema);
+module.exports = Sensor = mongoose.model('sensor', SensorsSchema);

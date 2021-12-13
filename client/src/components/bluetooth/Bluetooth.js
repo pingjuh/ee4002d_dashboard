@@ -2,74 +2,55 @@
 
 import axios from 'axios'
 
-const bleService = 'environmental_sensing'
-const bleCharacteristic = 'uv_index'
-let bluetoothDeviceDetected
-let gattCharacteristic
+let bluetoothDevice;
+let bleCharacteristic;
 
-export const connect = () => {
-  if (isWebBluetoothEnabled()) {
-    read()
+export async function connect() {
+  try {
+    if (!bluetoothDevice) {
+      await requestDevice();
+    }
+    await connectDeviceAndCacheCharacteristics();
+    console.log('Reading ...');
+    await bleCharacteristic.readValue();
+  } catch (error) {
+    console.log('Argh! ' + error);
   }
 }
 
-const getDeviceInfo = () => {
-  let options = {
-    optionalServices: [bleService],
+async function requestDevice() {
+  console.log('Requesting any Bluetooth Device...');
+  bluetoothDevice = await navigator.bluetooth.requestDevice({
     acceptAllDevices: true,
-  }
-  console.log('Requesting any Bluetooth Device...')
-  return navigator.bluetooth.requestDevice(options).then(device => {
-    bluetoothDeviceDetected = device
-  }).catch(error => {
-    console.log('Argh! ' + error)
-  })
+    optionalServices: ['environmental_sensing']
+  });
+  bluetoothDevice.addEventListener('gattserverdisconnected', disconnect);
 }
 
-const isWebBluetoothEnabled = () => {
-  if (!navigator.bluetooth) {
-    console.log('Web Bluetooth API is not available in this browser!')
-    return false
-  }
-  return true
-}
-
-const read = () => {
-  return (bluetoothDeviceDetected ? Promise.resolve() : getDeviceInfo())
-    .then(connectGATT)
-    .then(_ => {
-      console.log('Reading...')
-      return gattCharacteristic.readValue()
-    })
-    .catch(error => {
-      console.log('Waiting to start reading: ' + error)
-    })
-}
-
-const connectGATT = () => {
-  if (bluetoothDeviceDetected.gatt.connected && gattCharacteristic) {
-    return Promise.resolve()
+async function connectDeviceAndCacheCharacteristics() {
+  if (bluetoothDevice.gatt.connected && bleCharacteristic) {
+    return;
   }
 
-  return bluetoothDeviceDetected.gatt.connect()
-    .then(server => {
-      console.log('Getting GATT Service...')
-      return server.getPrimaryService(bleService)
-    })
-    .then(service => {
-      console.log('Getting GATT Characteristic...')
-      return service.getCharacteristic(bleCharacteristic)
-    })
-    .then(characteristic => {
-      gattCharacteristic = characteristic
-      gattCharacteristic.addEventListener('characteristicvaluechanged',
-        handleChangedValue)
-    })
+  console.log('Connecting to GATT Server...');
+  const server = await bluetoothDevice.gatt.connect();
+
+  console.log('Getting Service...');
+  const service = await server.getPrimaryService('environmental_sensing');
+
+  console.log('Getting Characteristic...');
+  bleCharacteristic = await service.getCharacteristic('uv_index');
+
+  bleCharacteristic.addEventListener('characteristicvaluechanged', handleChangedValue);
 }
 
-const handleChangedValue = (event) => {
-  let value = [
-    event.target.value.getUint8(0), 
+/* This function will be called when `readValue` resolves and
+ * characteristic value changes since `characteristicvaluechanged` event
+ * listener has been added. */
+
+function handleChangedValue(event) {
+  let sensorData = [
+    event.target.value.getUint8(0),
     event.target.value.getUint8(1),
     event.target.value.getUint8(2),
     event.target.value.getUint8(3),
@@ -83,28 +64,48 @@ const handleChangedValue = (event) => {
     event.target.value.getUint8(11),
     event.target.value.getUint8(12)
   ];
-  console.log(value);
   (async () => {
-    await axios.post('http://localhost:5000/api/sensor', {"sensorsReading" : value})
+    await axios.post('http://localhost:5000/api/sensor', { "sensorsReading": sensorData })
   })();
 }
 
-export const start = () => {
-  gattCharacteristic.startNotifications()
-    .then(_ => {
-      console.log('Start reading...')
-    })
-    .catch(error => {
-      console.log('[ERROR] Start: ' + error)
-    })
+export async function start() {
+  try {
+    console.log('Starting Notifications...');
+    await bleCharacteristic.startNotifications();
+
+    console.log('> Notifications started');
+  } catch (error) {
+    console.log('Argh! ' + error);
+  }
 }
 
-export const stop = () => {
-  gattCharacteristic.stopNotifications()
-    .then(_ => {
-      console.log('Stop reading...')
-    })
-    .catch(error => {
-      console.log('[ERROR] Stop: ' + error)
-    })
+export async function stop() {
+  try {
+    console.log('Stopping Battery Level Notifications...');
+    await bleCharacteristic.stopNotifications();
+
+    console.log('> Notifications stopped');
+  } catch (error) {
+    console.log('Argh! ' + error);
+  }
+}
+
+export function reset() {
+  if (bleCharacteristic) {
+    bleCharacteristic.removeEventListener('characteristicvaluechanged', handleChangedValue);
+    bleCharacteristic = null;
+  }
+  // Note that it doesn't disconnect device.
+  bluetoothDevice = null;
+  console.log('> Bluetooth Device reset');
+}
+
+export async function disconnect() {
+  console.log('> Bluetooth Device disconnected');
+  try {
+    await connectDeviceAndCacheCharacteristics()
+  } catch (error) {
+    console.log('Argh! ' + error);
+  }
 }

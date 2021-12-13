@@ -10,16 +10,17 @@ import List from '@mui/material/List';
 import Typography from '@mui/material/Typography';
 import Divider from '@mui/material/Divider';
 import IconButton from '@mui/material/IconButton';
-import Badge from '@mui/material/Badge';
 import Link from '@mui/material/Link';
 import MenuIcon from '@mui/icons-material/Menu';
 import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
 import MainListItems from './ListItems';
 import { secondaryListItems } from './ListItems';
-import { connect, start, stop } from '../bluetooth/Bluetooth';
+import { connect, disconnect, start, stop, reset } from '../bluetooth/Bluetooth';
 import BluetoothIcon from '@mui/icons-material/Bluetooth';
 import PlayCircleFilledWhiteOutlinedIcon from '@mui/icons-material/PlayCircleFilledWhiteOutlined';
 import StopCircleOutlinedIcon from '@mui/icons-material/StopCircleOutlined';
+import RestartAltIcon from '@mui/icons-material/RestartAlt';
+import BluetoothDisabledIcon from '@mui/icons-material/BluetoothDisabled';
 
 import AlertContext from '../../context/alert/alertContext';
 import SensorContext from '../../context/sensor/sensorContext';
@@ -134,21 +135,28 @@ export default function Dashboard(props) {
             >
               Dashboard
             </Typography>
-            <IconButton 
-              color="inherit" 
-              onClick={()=>{
+            <IconButton
+              color="inherit"
+              onClick={() => {
                 connect();
               }}>
               {/* <Badge color="secondary"> */}
-                <BluetoothIcon />
+              <BluetoothIcon />
               {/* </Badge> */}
+            </IconButton>
+            <IconButton
+              color="inherit"
+              onClick={() => {
+                disconnect();
+              }}>
+              <BluetoothDisabledIcon />
             </IconButton>
             <IconButton
               color="inherit"
               onClick={() => {
                 start();
               }}>
-              <PlayCircleFilledWhiteOutlinedIcon />           
+              <PlayCircleFilledWhiteOutlinedIcon />
             </IconButton>
             <IconButton
               color="inherit"
@@ -156,6 +164,13 @@ export default function Dashboard(props) {
                 stop();
               }}>
               <StopCircleOutlinedIcon />
+            </IconButton>
+            <IconButton
+              color="inherit"
+              onClick={() => {
+                reset();
+              }}>
+              <RestartAltIcon />
             </IconButton>
           </Toolbar>
         </AppBar>
