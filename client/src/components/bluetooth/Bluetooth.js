@@ -12,6 +12,7 @@ export async function connect() {
     }
     await connectDeviceAndCacheCharacteristics();
     console.log('Reading ...');
+    alert('Reading ...');
     await bleCharacteristic.readValue();
   } catch (error) {
     console.log('Argh! ' + error);

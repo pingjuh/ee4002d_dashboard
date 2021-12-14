@@ -63,6 +63,18 @@ void loop() {
       data[10] = random(0,255);
       data[11] = random(0,255);
       data[12] = random(0,9);
+//       data[0] = 0;
+//      data[1] = 21;
+//      data[2] = 42;
+//      data[3] = 63;
+//      data[4] = 84;
+//      data[5] = 105;
+//      data[6] = 126;
+//      data[7] = 147;
+//      data[8] = 168;
+//      data[9] = 189;
+//      data[10] = 210;
+//      data[11] = 225;
       gestureCharacteristic.writeValue(&data,sizeof(data));
        
       for(int i = 0; i < BLE_BUFFER_SIZE; i++) {
