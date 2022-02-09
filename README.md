@@ -5,6 +5,7 @@
 ## Prerequisite
 node version: `>= 16.13.0`<br />
 npm version: `>= 8.1.0`
+mongoDB community on localhost
 
 ---
 
@@ -21,9 +22,9 @@ Builds the app for production to the `build` folder.<br>
 
 ---
 
-## Set IP address for socket.io-client
-In client/src/context/sensor/SensorState.js, change IP to the IP address of API server, that is your public IP
+## MongDB Replica Set
 
+Convert Standalone MongoDB to Replica Set as server uses MongoDB Change Streams
 ---
 
 ## Generate fake sensor array data

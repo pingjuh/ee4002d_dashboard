@@ -32,13 +32,11 @@ io.on('connection', socket => {
 // Listen for socket connections
 (() => {
   Sensor.watch().on('change', (data) => {
-    console.log(data);
     io.emit('sensor', {
       sensorsReading: data.fullDocument.sensorsReading,
       inserted: data.fullDocument.inserted
     });
   });
-
 })();
 
 const PORT = process.env.PORT || 5000;
