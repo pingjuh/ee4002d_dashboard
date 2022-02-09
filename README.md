@@ -4,7 +4,7 @@
 
 ## Prerequisite
 node version: `>= 16.13.0`<br />
-npm version: `>= 8.1.0`
+npm version: `>= 8.1.0` <br />
 mongoDB community installed locally
 
 ---
