@@ -5,7 +5,7 @@
 ## Prerequisite
 node version: `>= 16.13.0`<br />
 npm version: `>= 8.1.0`
-mongoDB community on localhost
+mongoDB community installed locally
 
 ---
 
