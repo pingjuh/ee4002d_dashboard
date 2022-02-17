@@ -1,27 +1,53 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import Container from '@mui/material/Container';
 import Grid from '@mui/material/Grid';
 import Paper from '@mui/material/Paper';
 import Toolbar from '@mui/material/Toolbar';
-import List from '@mui/material/List';
-import ListItem from '@mui/material/ListItem';
-import ListItemText from '@mui/material/ListItemText';
-import ListSubheader from '@mui/material/ListSubheader';
+import { DataGrid } from '@mui/x-data-grid';
 import Button from '@mui/material/Button';
 import ButtonGroup from '@mui/material/ButtonGroup';
 import axios from 'axios';
 
+const columns = [
+  { field: 'id',
+    headerName: 'ID', 
+    width: 300 
+  },
+  {
+    field: 'inserted',
+    headerName: 'Time (hh:mm:ss:ms)',
+    width: 300,
+    editable: true,
+  },
+  {
+    field: 'sensorsReading',
+    headerName: 'Readings',
+    type: 'number',
+    width: 300,
+    editable: true,
+  }
+];
 
 export default function History() {
-  // import data from mongodb using axios
-  const [data, setData] = React.useState([]);
+ 
+  const [data, setData] = useState([]);
 
   const getData = (number) => {
     axios.get(`http://localhost:5000/api/sensor/${number}`)
       .then(res => {
+        res.data.map(item => {
+          // convert time from UTC to local time
+          let time = (parseInt(item.inserted.slice(11,13)) + 8) % 24;
+          item.inserted = time.toString() + ':' + item.inserted.slice(14, 22);
+          return null;
+        })
         setData(res.data);
-      })
+      })  
   }  
+
+  useEffect(() => {
+    getData(10);
+  }, []);
 
   return (
     <>
@@ -35,7 +61,7 @@ export default function History() {
               display: 'flex',
               flexDirection: 'column',
               width: 1250,
-              height: 5000
+              height: 700
             }}
           >
           <ButtonGroup 
@@ -69,16 +95,23 @@ export default function History() {
             >
               100
             </Button>
-          </ButtonGroup>         
-          <ul>
-            <ListSubheader>{"Time"}</ListSubheader>
-            {data.map(item => (
-              <ListItem key={item._id}>
-                <ListItemText primary={` ${item.inserted.slice(14, 23)}`}/>
-                <ListItemText primary={` ${item.sensorsReading}`}/>
-              </ListItem>
-            ))}
-          </ul>
+            <Button 
+              onClick={() => {
+                getData(Number.MAX_SAFE_INTEGER);
+
+              }}
+            >
+              All
+            </Button>
+          </ButtonGroup>     
+          <DataGrid
+            rows={data}
+            columns={columns}
+            pageSize={100}
+            rowsPerPageOptions={[100]}
+            checkboxSelection
+            disableSelectionOnClick
+          />
           </Paper>
         </Grid>
       </Grid>
