@@ -3,7 +3,7 @@ import Container from '@mui/material/Container';
 import Grid from '@mui/material/Grid';
 import Paper from '@mui/material/Paper';
 import Toolbar from '@mui/material/Toolbar';
-import { DataGrid } from '@mui/x-data-grid';
+import { DataGrid, GridToolbar } from '@mui/x-data-grid';
 import Button from '@mui/material/Button';
 import ButtonGroup from '@mui/material/ButtonGroup';
 import axios from 'axios';
@@ -111,6 +111,7 @@ export default function History() {
             rowsPerPageOptions={[100]}
             checkboxSelection
             disableSelectionOnClick
+            components={{ Toolbar: GridToolbar }}
           />
           </Paper>
         </Grid>
