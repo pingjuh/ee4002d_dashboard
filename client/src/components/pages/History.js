@@ -11,21 +11,105 @@ import axios from 'axios';
 const columns = [
   { field: 'id',
     headerName: 'ID', 
-    width: 300 
+    width: 150 
   },
   {
     field: 'inserted',
     headerName: 'Time (hh:mm:ss:ms)',
-    width: 300,
+    width: 150,
     editable: true,
   },
   {
-    field: 'sensorsReading',
-    headerName: 'Readings',
+    field: 'ch0',
+    headerName: 'Ch0',
     type: 'number',
-    width: 300,
+    width: 55,
     editable: true,
-  }
+  },
+  {
+    field: 'ch1',
+    headerName: 'Ch1',
+    type: 'number',
+    width: 55,
+    editable: true,
+  },
+  {
+    field: 'ch2',
+    headerName: 'Ch2',
+    type: 'number',
+    width: 55,
+    editable: true,
+  },
+  {
+    field: 'ch3',
+    headerName: 'Ch3',
+    type: 'number',
+    width: 55,
+    editable: true,
+  },
+  {
+    field: 'ch4',
+    headerName: 'Ch4',
+    type: 'number',
+    width: 55,
+    editable: true,
+  },
+  {
+    field: 'ch5',
+    headerName: 'Ch5',
+    type: 'number',
+    width: 55,
+    editable: true,
+  },
+  {
+    field: 'ch6',
+    headerName: 'Ch6',
+    type: 'number',
+    width: 55,
+    editable: true,
+  },
+  {
+    field: 'ch7',
+    headerName: 'Ch7',
+    type: 'number',
+    width: 55,
+    editable: true,
+  },
+  {
+    field: 'ch8',
+    headerName: 'Ch8',
+    type: 'number',
+    width: 55,
+    editable: true,
+  },
+  {
+    field: 'ch9',
+    headerName: 'Ch9',
+    type: 'number',
+    width: 55,
+    editable: true,
+  },
+  {
+    field: 'ch10',
+    headerName: 'Ch10',
+    type: 'number',
+    width: 65,
+    editable: true,
+  },
+  {
+    field: 'ch11',
+    headerName: 'Ch11',
+    type: 'number',
+    width: 65,
+    editable: true,
+  },
+  {
+    field: 'classification',
+    headerName: 'Result',
+    type: 'number',
+    width: 70,
+    editable: true,
+  },
 ];
 
 export default function History() {
@@ -39,6 +123,19 @@ export default function History() {
           // convert time from UTC to local time
           let time = (parseInt(item.inserted.slice(11,13)) + 8) % 24;
           item.inserted = time.toString() + ':' + item.inserted.slice(14, 22);
+          item.ch0 = item.sensorsReading[0];
+          item.ch1 = item.sensorsReading[1];
+          item.ch2 = item.sensorsReading[2];
+          item.ch3 = item.sensorsReading[3];
+          item.ch4 = item.sensorsReading[4];
+          item.ch5 = item.sensorsReading[5];
+          item.ch6 = item.sensorsReading[6];
+          item.ch7 = item.sensorsReading[7];
+          item.ch8 = item.sensorsReading[8];
+          item.ch9 = item.sensorsReading[9];
+          item.ch10 = item.sensorsReading[10];
+          item.ch11 = item.sensorsReading[11];
+          item.classification = item.sensorsReading[12];
           return null;
         })
         setData(res.data);
@@ -98,7 +195,6 @@ export default function History() {
             <Button 
               onClick={() => {
                 getData(Number.MAX_SAFE_INTEGER);
-
               }}
             >
               All
