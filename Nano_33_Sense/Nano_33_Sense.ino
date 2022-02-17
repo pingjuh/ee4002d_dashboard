@@ -48,39 +48,30 @@ void loop() {
     Serial.print("* Device MAC address: ");
     Serial.println(central.address());
     Serial.println(" ");
-
+    int k = 0;
     while (central.connected()) {
-      data[0] = random(0,255);
-      data[1] = random(0,255);
-      data[2] = random(0,255);
-      data[3] = random(0,255);
-      data[4] = random(0,255);
-      data[5] = random(0,255);
-      data[6] = random(0,255);
-      data[7] = random(0,255);
-      data[8] = random(0,255);
-      data[9] = random(0,255);
-      data[10] = random(0,255);
-      data[11] = random(0,255);
+      data[0] = random(0,20);
+      data[1] = random(0,30);
+      data[2] = random(0,20);
+      data[3] = random(0,30);
+      data[4] = random(0,20);
+      data[5] = random(0,30);
+      data[6] = (k >= 10 && k <= 20) ? random(200, 255) : 0; 
+      data[7] = (k >= 10 && k <= 20) ? random(200, 255) : 0; 
+      data[8] = (k >= 10 && k <= 20) ? random(200, 255) : 0; 
+      data[9] = (k >= 10 && k <= 20) ? random(200, 255) : 0; 
+      data[10] = random(0,20);
+      data[11] = random(0,30);
       data[12] = random(0,9);
-//       data[0] = 0;
-//      data[1] = 21;
-//      data[2] = 42;
-//      data[3] = 63;
-//      data[4] = 84;
-//      data[5] = 105;
-//      data[6] = 126;
-//      data[7] = 147;
-//      data[8] = 168;
-//      data[9] = 189;
-//      data[10] = 210;
-//      data[11] = 225;
+
       gestureCharacteristic.writeValue(&data,sizeof(data));
        
       for(int i = 0; i < BLE_BUFFER_SIZE; i++) {
         Serial.print(data[i]);
         Serial.print("\t");
       }
+      if (k > 20) k = 0;
+      k++;
       Serial.println();
       delay(100);
     }    

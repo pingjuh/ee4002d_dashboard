@@ -4,7 +4,6 @@ import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
-import ListSubheader from '@mui/material/ListSubheader';
 import DashboardIcon from '@mui/icons-material/Dashboard';
 import AssignmentIcon from '@mui/icons-material/Assignment';
 import AutoGraphIcon from '@mui/icons-material/AutoGraph';
@@ -43,20 +42,19 @@ export default function MainListItems() {
           <AutoGraphIcon />
         </ListItemIcon>
         <ListItemText primary="Graphs" />
-      </ListItem>      
-    </List>
-  )
-}
+      </ListItem>  
 
-export const secondaryListItems = (
-  <div>
-    <ListSubheader inset>Saved reports</ListSubheader>
-    <ListItem button>
+      <ListItem 
+        button
+        onClick={() => history.push('/history')}
+        className={location.pathname === '/history' ? classes.active : ''}
+      >
       <ListItemIcon>
         <AssignmentIcon />
       </ListItemIcon>
       <ListItemText primary="Past Results" />
     </ListItem>
-  </div>
-);
+    </List>
+  )
+}
 

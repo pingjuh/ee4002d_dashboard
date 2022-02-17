@@ -1,12 +1,10 @@
 import * as React from 'react';
-import { useContext, useEffect} from 'react';
 import { styled, createTheme, ThemeProvider } from '@mui/material/styles';
 import CssBaseline from '@mui/material/CssBaseline';
 import MuiDrawer from '@mui/material/Drawer';
 import Box from '@mui/material/Box';
 import MuiAppBar from '@mui/material/AppBar';
 import Toolbar from '@mui/material/Toolbar';
-import List from '@mui/material/List';
 import Typography from '@mui/material/Typography';
 import Divider from '@mui/material/Divider';
 import IconButton from '@mui/material/IconButton';
@@ -14,16 +12,12 @@ import Link from '@mui/material/Link';
 import MenuIcon from '@mui/icons-material/Menu';
 import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
 import MainListItems from './ListItems';
-import { secondaryListItems } from './ListItems';
 import { connect, disconnect, start, stop, reset } from '../bluetooth/Bluetooth';
 import BluetoothIcon from '@mui/icons-material/Bluetooth';
 import PlayCircleFilledWhiteOutlinedIcon from '@mui/icons-material/PlayCircleFilledWhiteOutlined';
 import StopCircleOutlinedIcon from '@mui/icons-material/StopCircleOutlined';
 import RestartAltIcon from '@mui/icons-material/RestartAlt';
 import BluetoothDisabledIcon from '@mui/icons-material/BluetoothDisabled';
-
-import AlertContext from '../../context/alert/alertContext';
-import SensorContext from '../../context/sensor/sensorContext';
 
 
 function Copyright(props) {
@@ -92,17 +86,6 @@ export default function Dashboard(props) {
   const toggleDrawer = () => {
     setOpen(!open);
   };
-  const { setAlert, removeAlert } = useContext(AlertContext);
-  const { connected } = useContext(SensorContext);
-
-  useEffect(() => {
-    // connected ? setAlert('Connected', 'success') : setAlert('Disconnected', 'danger');
-    return () => {
-      removeAlert();
-    }
-    // eslint-disable-next-line
-  },[connected]);
-
 
   return (
     <ThemeProvider theme={mdTheme}>
@@ -190,7 +173,6 @@ export default function Dashboard(props) {
           <Divider />
           <MainListItems/>
           <Divider />
-          <List>{secondaryListItems}</List>
         </Drawer>
         <Box
           component="main"

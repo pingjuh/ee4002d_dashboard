@@ -32,9 +32,9 @@ router.post(
 // @route   GET api/sensor
 // @desc    GET all sensor
 // @access  Public
-router.get("/", async (req, res) => {
+router.get("/:id", async (req, res) => {
   try {
-    const sensor = await Sensor.find().sort({ inserted: -1 });
+    const sensor = await Sensor.find().sort({ inserted: -1 }).limit(parseInt(req.params.id));
     res.json(sensor);
   } catch (err) {
     console.error(err.message);
@@ -43,3 +43,5 @@ router.get("/", async (req, res) => {
 });
 
 module.exports = router;
+
+// get the latest 10 entries
