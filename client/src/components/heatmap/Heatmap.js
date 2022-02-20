@@ -3,7 +3,7 @@ import ReactApexChart from 'react-apexcharts';
 import SensorContext from '../../context/sensor/sensorContext';
 import Spinner from '../layout/Spinner';
 
-export default function Heatmap( {orientation, rotate, height, width}) {
+export default function Heatmap( { rotate, height, width }) {
   const { data, connected } = useContext(SensorContext);
   const [result, setResult] = useState();
   let sensor0, sensors;
@@ -21,6 +21,10 @@ export default function Heatmap( {orientation, rotate, height, width}) {
   if (!connected || !result) return <Spinner/>;
   
   const series1 = [
+    {
+      name: "ch6",
+      data: result.slice(6,7)
+    },
     {
       name: "ch5",
       data: result.slice(5,6)
@@ -48,10 +52,6 @@ export default function Heatmap( {orientation, rotate, height, width}) {
   ];
 
   const series2 = [
-    {
-      name: "ch6",
-      data: result.slice(6,7)
-    },
     {
       name: "ch7",
       data: result.slice(7,8)
