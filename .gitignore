@@ -6,5 +6,5 @@ client/.DS_store
 .DS_store
 client/src/components/pages/LineChart.js
 client/build
-Nano_33_Sense/BLE/.vscode
-Nano_33_Sense/BLE/test
+Nano_33_Sense/.vscode
+Nano_33_Sense/test
