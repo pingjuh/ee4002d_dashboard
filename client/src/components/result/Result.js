@@ -24,7 +24,7 @@ export default function Result() {
     color: "#3B3B3B"
   }
 
-  if (!connected || !result) return <Spinner />;
+  if (!connected || result <= 0) return <Spinner />;
 
   return (
     <h1 style={style}>
