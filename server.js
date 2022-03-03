@@ -32,12 +32,6 @@ if (process.env.NODE_ENV === 'production') {
   });
 }
 
-io.on('connection', socket => {
-  socket.on('disconnect', () => {
-    console.log('user disconnected');
-  })
-});
-
 // Listen for socket connections
 (() => {
   Sensor.watch().on('change', (data) => {

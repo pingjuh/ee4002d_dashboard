@@ -119,7 +119,7 @@ export default function History() {
   const [data, setData] = useState([]);
 
   const getData = (number) => {
-    axios.get(`http://localhost:5000/api/sensor/${number}`)
+    axios.get(`/api/sensor/${number}`)
       .then(res => {
         res.data.map(item => {
           // convert time from UTC to local time

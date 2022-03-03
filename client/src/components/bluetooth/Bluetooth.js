@@ -66,7 +66,7 @@ function handleChangedValue(event) {
     event.target.value.getUint8(12)
   ];
   (async () => {
-    await axios.post('http://localhost:5000/api/sensor', {"sensorsReading": sensorData});
+    await axios.post('/api/sensor', {"sensorsReading": sensorData});
   })();
 }
 
