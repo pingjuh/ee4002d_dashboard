@@ -16,13 +16,9 @@ mongoDB community installed locally
 Runs the app in the development mode.<br>
 Open [http://localhost:3000](http://localhost:3000)
 
-### `npm run build`
-
-Builds the app for production to the `build` folder.<br>
-
 ---
 
-## MongDB Replica Set
+## MongDB Replica Set (for Localhost)
 
 Convert Standalone MongoDB to Replica Set as server uses MongoDB Change Streams
 ---
@@ -31,9 +27,12 @@ Convert Standalone MongoDB to Replica Set as server uses MongoDB Change Streams
 ``` bash
 python3 fake_data/fake_data.py
 ```
+---
 ## Connecting to BLE Device
 Please use Google Chrome and enable "Experimental Web Platform features" on Chrome.
+```bash
 chrome://flags/#enable-experimental-web-platform-features 
+```
 set to enable
 
 ## Dashboard
