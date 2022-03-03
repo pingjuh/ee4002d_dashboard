@@ -196,6 +196,13 @@ export default function History() {
             </Button>
             <Button 
               onClick={() => {
+                getData(500);
+              }}
+            >
+              500
+            </Button>
+            <Button 
+              onClick={() => {
                 getData(Number.MAX_SAFE_INTEGER);
               }}
             >
