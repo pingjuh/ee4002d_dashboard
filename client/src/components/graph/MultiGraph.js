@@ -55,7 +55,7 @@ export default function MultiGraph () {
           top: 0,
           right: 10,
           left: 0,
-          bottom: 50,
+          bottom: 100,
         }}
       >
         <XAxis interval={44} dataKey='time' />
