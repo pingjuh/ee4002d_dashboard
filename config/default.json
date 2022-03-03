@@ -1,3 +1,3 @@
 {
-  "mongoURI": "mongodb+srv://pingju:<password>@cluster0.jnwyg.mongodb.net/myFirstDatabase?retryWrites=true&w=majority"
+  "mongoURI": "PUT_YOUR_MONGO_URI"
 }
