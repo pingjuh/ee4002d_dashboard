@@ -79,7 +79,7 @@ void loop() {
         Serial.print("\t");
       }
       Serial.println();
-      delay(500);
+      delay(100);
     }
     Serial.println("* Disconnected to central device!");
   }

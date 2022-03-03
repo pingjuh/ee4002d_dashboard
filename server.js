@@ -6,6 +6,7 @@ const server = http.Server(app);
 const io = require('socket.io')(server, {
   transports: ['websocket', 'polling']
 });
+const path = require('path');
 
 const Sensor = require('./models/Sensor');
 const cors = require('cors');
@@ -18,10 +19,18 @@ connectDB();
 // Init Middleware
 app.use(express.json({ extended: false }));
 
-app.get('/', (req, res) => res.send('API Running!'));
-
 // Define Routes
 app.use('/api/sensor', require('./routes/api/sensors'));
+
+// Serve static assets if in production
+if (process.env.NODE_ENV === 'production') {
+  // Set static folder
+  app.use(express.static('client/build'));
+
+  app.get('*', (req, res) => {
+    res.sendFile(path.resolve(_dirname, 'client', 'build', 'index.html'));
+  });
+}
 
 io.on('connection', socket => {
   socket.on('disconnect', () => {
