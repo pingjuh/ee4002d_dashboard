@@ -10,7 +10,8 @@ const path = require('path');
 
 const Sensor = require('./models/Sensor');
 const cors = require('cors');
-const { info } = require('console');
+const PORT = process.env.PORT || 5000;
+
 app.use(cors());
 
 // Connect Database
@@ -28,9 +29,19 @@ if (process.env.NODE_ENV === 'production') {
   app.use(express.static('client/build'));
 
   app.get('*', (req, res) => {
-    res.sendFile(path.resolve(_dirname, 'client', 'build', 'index.html'));
+    res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'));
   });
+  // SocketIO
+  const server = app
+  .use((req, res) => res.sendFile('index.html', { root: __dirname }))
+  .listen(PORT, () => console.log(`Listening on ${PORT}`));
+  const io = socketIO(server);
 }
+
+io.on('connection', (socket) => {
+  console.log('Client connected');
+  socket.on('disconnect', () => console.log('Client disconnected'));
+});
 
 // Listen for socket connections
 (() => {
@@ -41,7 +52,5 @@ if (process.env.NODE_ENV === 'production') {
     });
   });
 })();
-
-const PORT = process.env.PORT || 5000;
 
 server.listen(PORT, () => console.log(`Server start on port ${PORT}`));

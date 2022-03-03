@@ -8,6 +8,5 @@ client/src/components/pages/LineChart.js
 client/build
 Nano_33_Sense/.vscode
 Nano_33_Sense/test
-config/default.json
 package-lock.json
 client/package-lock.json
