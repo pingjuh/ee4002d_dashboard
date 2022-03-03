@@ -34,8 +34,7 @@ if (process.env.NODE_ENV === 'production') {
   });
   // SocketIO
   const server = app
-  .use((req, res) => res.sendFile('index.html', { root: __dirname }))
-  .listen(PORT, () => console.log(`Listening on ${PORT}`));
+  .use((req, res) => res.sendFile('index.html', { root: __dirname }));
   const io = socketIO(server);
 }
 
