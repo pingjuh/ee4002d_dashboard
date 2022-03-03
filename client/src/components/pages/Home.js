@@ -11,10 +11,9 @@ import axios from 'axios';
 
 export default function Home() {
   const getAndPost = async () => {
-    const res  = await axios.get('/api/sensor/25');
+    const res  = await axios.get('/api/sensor/100');
     res.data.map(item => {
         axios.post('/api/sensor', item);
-        console.log(item);
     });
   }
 
