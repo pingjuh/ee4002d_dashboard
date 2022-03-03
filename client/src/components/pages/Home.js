@@ -6,8 +6,18 @@ import Title from '../layout/Title';
 import MultiGraph from '../graph/MultiGraph';
 import Heatmap from '../heatmap/Heatmap';
 import Result from '../result/Result';
+import Button from '@mui/material/Button';
+import axios from 'axios';
 
 export default function Home() {
+  const getAndPost = async () => {
+    const res  = await axios.get('/api/sensor/25');
+    res.data.map(item => {
+        axios.post('/api/sensor', item);
+        console.log(item);
+    });
+  }
+
   return (
     <>
       <Toolbar />
@@ -25,6 +35,12 @@ export default function Home() {
               }}
             >
               <Title> Sensors</Title>
+              <Button
+                onClick={() => {
+                  getAndPost();
+              }}> 
+                Play demo 
+              </Button>
               <MultiGraph />
             </Paper>
           </Grid>
