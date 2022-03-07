@@ -7,6 +7,7 @@ import ListItemText from '@mui/material/ListItemText';
 import DashboardIcon from '@mui/icons-material/Dashboard';
 import AssignmentIcon from '@mui/icons-material/Assignment';
 import AutoGraphIcon from '@mui/icons-material/AutoGraph';
+import InfoIcon from '@mui/icons-material/Info';
 import { useHistory, useLocation } from 'react-router-dom';
 
 const useStyles = makeStyles({
@@ -22,6 +23,17 @@ export default function MainListItems() {
 
   return (
     <List>
+       <ListItem 
+        button
+        onClick={() => history.push('/about')}
+        className={location.pathname === '/about' ? classes.active : ''}
+      >
+        <ListItemIcon>
+          <InfoIcon />
+        </ListItemIcon>
+        <ListItemText primary="About" />
+      </ListItem>
+
       <ListItem 
         button
         onClick={() => history.push('/')}
@@ -49,11 +61,11 @@ export default function MainListItems() {
         onClick={() => history.push('/history')}
         className={location.pathname === '/history' ? classes.active : ''}
       >
-      <ListItemIcon>
-        <AssignmentIcon />
-      </ListItemIcon>
-      <ListItemText primary="Past Results" />
-    </ListItem>
+        <ListItemIcon>
+          <AssignmentIcon />
+        </ListItemIcon>
+        <ListItemText primary="Past Results" />
+      </ListItem>   
     </List>
   )
 }
