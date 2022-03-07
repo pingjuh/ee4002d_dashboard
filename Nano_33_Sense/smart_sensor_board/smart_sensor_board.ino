@@ -65,6 +65,7 @@ bool connectToCentral(BLEDevice *central) {
         return false;
     } else {
         *central = BLE.central();
+        delay(500);
     }
     return true;
 }
