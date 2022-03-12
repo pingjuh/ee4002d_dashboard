@@ -169,13 +169,13 @@ export default function Heatmap() {
           ranges: [{
               from: 0,
               to: 0,
-              name: 'Touched',
+              name: 'Untouch',
               color: '#D3D3D3'
             },
             {
               from: 1,
               to: 1,
-              name: 'Untouched',
+              name: 'Touched',
               color: '#128FD9'
             }
           ]

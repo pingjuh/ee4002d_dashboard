@@ -39,7 +39,7 @@ export default function MultiGraph () {
   useEffect(() => {
     setResult(prevResult => [...prevResult, resultObj]);
      // Moving effect
-    while (result.length > 31) result.shift();
+    while (result.length > 16) result.shift();
     // eslint-disable-next-line
   },[sensor0]);
 
@@ -58,7 +58,7 @@ export default function MultiGraph () {
           bottom: 100,
         }}
       >
-        <XAxis interval={44} dataKey='time' />
+        <XAxis interval={5} dataKey='time' />
         <YAxis domain={[0, 170]}/>
         <CartesianGrid strokeDasharray="3 3" />
         <Tooltip />
