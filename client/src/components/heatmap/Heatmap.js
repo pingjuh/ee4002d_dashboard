@@ -3,6 +3,7 @@ import ReactApexChart from 'react-apexcharts';
 import SensorContext from '../../context/sensor/sensorContext';
 import Spinner from '../layout/Spinner';
 import HeatmapContext from '../../context/heatmap/heatmapContext';
+import Button from '@mui/material/Button';
 
 export default function Heatmap() {
   const { data, connected } = useContext(SensorContext);
@@ -50,6 +51,41 @@ export default function Heatmap() {
     ch4ch9,
     ch4ch10,
     ch4ch11,
+    setCh0Ch5,
+    setCh0Ch6,
+    setCh0Ch7,
+    setCh0Ch8,
+    setCh0Ch9,
+    setCh0Ch10,
+    setCh0Ch11,
+    setCh1Ch5,
+    setCh1Ch6,
+    setCh1Ch7,
+    setCh1Ch8,
+    setCh1Ch9,
+    setCh1Ch10,
+    setCh1Ch11,
+    setCh2Ch5,
+    setCh2Ch6,
+    setCh2Ch7,
+    setCh2Ch8,
+    setCh2Ch9,
+    setCh2Ch10,
+    setCh2Ch11,
+    setCh3Ch5,
+    setCh3Ch6,
+    setCh3Ch7,
+    setCh3Ch8,
+    setCh3Ch9,
+    setCh3Ch10,
+    setCh3Ch11,
+    setCh4Ch5,
+    setCh4Ch6,
+    setCh4Ch7,
+    setCh4Ch8,
+    setCh4Ch9,
+    setCh4Ch10,
+    setCh4Ch11
   } = useContext(HeatmapContext);
 
   useEffect(() => {
@@ -150,6 +186,47 @@ export default function Heatmap() {
 
 
   return (
+    <>
+    <Button
+    onClick={() => {
+      setCh0Ch5(0);
+      setCh0Ch6(0);
+      setCh0Ch7(0);
+      setCh0Ch8(0);
+      setCh0Ch9(0);
+      setCh0Ch10(0);
+      setCh0Ch11(0);
+      setCh1Ch5(0);
+      setCh1Ch6(0);
+      setCh1Ch7(0);
+      setCh1Ch8(0);
+      setCh1Ch9(0);
+      setCh1Ch10(0);
+      setCh1Ch11(0);
+      setCh2Ch5(0);
+      setCh2Ch6(0);
+      setCh2Ch7(0);
+      setCh2Ch8(0);
+      setCh2Ch9(0);
+      setCh2Ch10(0);
+      setCh2Ch11(0);
+      setCh3Ch5(0);
+      setCh3Ch6(0);
+      setCh3Ch7(0);
+      setCh3Ch8(0);
+      setCh3Ch9(0);
+      setCh3Ch10(0);
+      setCh3Ch11(0);
+      setCh4Ch5(0);
+      setCh4Ch6(0);
+      setCh4Ch7(0);
+      setCh4Ch8(0);
+      setCh4Ch9(0);
+      setCh4Ch10(0);
+      setCh4Ch11(0);
+    }}> 
+      Reset
+    </Button>
     <ReactApexChart
       options={options}
       series={series}
@@ -157,5 +234,6 @@ export default function Heatmap() {
       height= {340}
       width={400}
     />
+    </>
   );
 }
