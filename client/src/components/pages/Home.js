@@ -34,7 +34,7 @@ export default function Home() {
                 height: 430
               }}
             >
-              <Title> Individual Channel </Title>
+              <Title> Channels </Title>
               <Button
                 onClick={() => {
                   getAndPost();
@@ -56,7 +56,7 @@ export default function Home() {
                 width: 265,
               }}
             >
-              <Title> Classification Result</Title>
+              <Title> Classification Result </Title>
               <Result />
             </Paper>
           </Grid>

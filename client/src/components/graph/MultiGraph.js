@@ -39,7 +39,7 @@ export default function MultiGraph () {
   useEffect(() => {
     setResult(prevResult => [...prevResult, resultObj]);
      // Moving effect
-    while (result.length > 99) result.shift();
+    while (result.length > 49) result.shift();
     // eslint-disable-next-line
   },[sensor0]);
 
