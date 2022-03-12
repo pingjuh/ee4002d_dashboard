@@ -56,21 +56,22 @@ void loop() {
     Serial.println(" ");
     int k = 0;
     while (central.connected()) {
-      if (k > 20) k = 0;
+      if (k > 50) k = 0;
       k++;
-      data[0] = random(0, 20);
-      data[1] = random(0, 30);
-      data[2] = random(0, 20);
-      data[3] = random(0, 30);
-      data[4] = random(0, 20);
-      data[5] = random(0, 30);
-      data[6] = (k >= 10 && k <= 20) ? random(200, 255) : 0;
-      data[7] = (k >= 10 && k <= 20) ? random(200, 255) : 0;
-      data[8] = (k >= 10 && k <= 20) ? random(200, 255) : 0;
-      data[9] = (k >= 10 && k <= 20) ? random(200, 255) : 0;
-      data[10] = random(0, 20);
-      data[11] = random(0, 30);
-      data[12] = random(0, 9);
+      // Simulate a number
+      data[0] = random(0, 166);
+      data[1] = random(0, 166);
+      data[2] = random(0, 166);
+      data[3] = random(0, 166);
+      data[4] = random(0, 166);
+      data[5] = random(0, 166);
+      data[6] = random(0, 166);
+      data[7] = random(0, 166);
+      data[8] = random(0, 166);
+      data[9] = random(0, 166);
+      data[10] = random(0, 166);
+      data[11] = random(0, 166);
+      data[12] = (k > 40) ? 5 : 0;
 
       gestureCharacteristic.writeValue(&data, sizeof(data));
 
@@ -79,7 +80,7 @@ void loop() {
         Serial.print("\t");
       }
       Serial.println();
-      delay(100);
+      delay(150);
     }
     Serial.println("* Disconnected to central device!");
   }

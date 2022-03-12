@@ -3,7 +3,7 @@ import ReactApexChart from 'react-apexcharts';
 import SensorContext from '../../context/sensor/sensorContext';
 import Spinner from '../layout/Spinner';
 
-export default function Heatmap( { rotate, height, width } ) {
+export default function Heatmap() {
   const { data, connected } = useContext(SensorContext);
   const [result, setResult] = useState();
   let sensor0, sensors;
@@ -19,62 +19,84 @@ export default function Heatmap( { rotate, height, width } ) {
   }, [sensor0]);
   
   if (!connected || !result) return <Spinner/>;
-  
-  const series1 = [
-    {
-      name: "ch11",
-      data: result.slice(11,12)
-    },
-    {
-      name: "ch10",
-      data: result.slice(10,11)
-    },
-    {
-      name: "ch9",
-      data: result.slice(9,10)
-    },
-    {
-      name: "ch8",
-      data: result.slice(8,9)
-    },
-    {
-      name: "ch7",
-      data: result.slice(7,8)
-    },
-    {
-      name: "ch6",
-      data: result.slice(6,7)
-    },
-    {
-      name: "ch5",
-      data: result.slice(5,6)
-    } 
-  ];
 
-  const series2 = [
-    {
-      name: "ch0",
-      data: result.slice(0,1)
-    },
-    {
-      name: "ch1",
-      data: result.slice(1,2)
-    },
-    {
-      name: "ch2",
-      data: result.slice(2,3)
-    },
-    {
-      name: "ch3",
-      data: result.slice(3,4)
-    },
-    {
-      name: "ch4",
-      data: result.slice(4,5)
-    }
-  ];
+  const ch0ch5 = result[0]*result[5];
+  const ch1ch5 = result[1]*result[5];
+  const ch2ch5 = result[2]*result[5];
+  const ch3ch5 = result[3]*result[5];
+  const ch4ch5 = result[4]*result[5];
+  const ch0ch6 = result[0]*result[6];
+  const ch1ch6 = result[1]*result[6];
+  const ch2ch6 = result[2]*result[6];
+  const ch3ch6 = result[3]*result[6];
+  const ch4ch6 = result[4]*result[6];
+  const ch0ch7 = result[0]*result[7];
+  const ch1ch7 = result[1]*result[7];
+  const ch2ch7 = result[2]*result[7];
+  const ch3ch7 = result[3]*result[7];
+  const ch4ch7 = result[4]*result[7];
+  const ch0ch8 = result[0]*result[8];
+  const ch1ch8 = result[1]*result[8];
+  const ch2ch8 = result[2]*result[8];
+  const ch3ch8 = result[3]*result[8];
+  const ch4ch8 = result[4]*result[8];
+  const ch0ch9 = result[0]*result[9];
+  const ch1ch9 = result[1]*result[9];
+  const ch2ch9 = result[2]*result[9];
+  const ch3ch9 = result[3]*result[9];
+  const ch4ch9 = result[4]*result[9];
+  const ch0ch10 = result[0]*result[10];
+  const ch1ch10 = result[1]*result[10];
+  const ch2ch10 = result[2]*result[10];
+  const ch3ch10 = result[3]*result[10];
+  const ch4ch10 = result[4]*result[10];
+  const ch0ch11 = result[0]*result[11];
+  const ch1ch11 = result[1]*result[11];
+  const ch2ch11 = result[2]*result[11];
+  const ch3ch11 = result[3]*result[11];
+  const ch4ch11 = result[4]*result[11];
 
-  let series = rotate ? series2 : series1;
+  const firstRow = [ch0ch5, ch1ch5, ch2ch5, ch3ch5, ch4ch5];
+  const secondRow = [ch0ch6, ch1ch6, ch2ch6, ch3ch6, ch4ch6];
+  const thirdRow = [ch0ch7, ch1ch7, ch2ch7, ch3ch7, ch4ch7];
+  const fourthRow = [ch0ch8, ch1ch8, ch2ch8, ch3ch8, ch4ch8];
+  const fifthRow = [ch0ch9, ch1ch9, ch2ch9, ch3ch9, ch4ch9];
+  const sixthRow = [ch0ch10, ch1ch10, ch2ch10, ch3ch10, ch4ch10];
+  const seventhRow = [ch0ch11, ch1ch11, ch2ch11, ch3ch11, ch4ch11];
+
+  const series = [
+    {
+      name: "12",
+      data: seventhRow
+
+    },
+    {
+      name: "11",
+      data: sixthRow
+
+    },
+    {
+      name: "10",
+      data: fifthRow
+
+    },
+    {
+      name: "9",
+      data: fourthRow
+    },
+    {
+      name: "8",
+      data: thirdRow
+    },
+    {
+      name: "7",
+      data: secondRow
+    },
+    {
+      name: "6",
+      data: firstRow
+    },
+  ];
 
   const options = {
     chart: {
@@ -84,54 +106,65 @@ export default function Heatmap( { rotate, height, width } ) {
       },
     },
     dataLabels: {
-      enabled: true,
+      enabled: false,
     },
     grid: {
       show: true,
       padding: {
         top: 0,
         bottom: 0,
-        left: 62,
+        left: 30,
       },
     },
     stroke: {
       curve: "smooth",
+      width: 1,
     },
-    xaxis: {
-      // type: "category",
-      labels: {
-        show: false
-      }
-    },
-    colors: ["#008FFB"],
+    // colors: ["#008FFB"],
     plotOptions: {
       heatmap: {
-        enableShades: true,
+        radius: 30,
+        enableShades: false,
         colorScale: {
+          // product range is from 0 to 27000
           ranges: [{
               from: 0,
-              to: 255,
-              color: '#008FFB'
+              to: 6750,
+              name: 'Touched',
+              color: '#FF0000'
             },
-          ],
-        },
-    
-      }
+            {
+              from: 6751,
+              to: 13500,
+              name: 'medium',
+              color: '#FFB200'
+            },
+            {
+              from: 13501,
+              to: 20250,
+              name: 'high',
+              color: '#128FD9'
+            },
+            {
+              from: 20251,
+              to: 27000,
+              name: 'Untouched',
+              color: '#00A100'
+            }
+          ]
+        }
+      },
     },
   };
-  
-  const style = {
-    transform: rotate ? 'rotate(90deg)' : '', 
-   }
+
 
   return (
     <ReactApexChart
       options={options}
       series={series}
       type="heatmap"
-      height={height}
-      width={width}
-      style = {style}
+      height= {340}
+      width={400}
     />
   );
 }

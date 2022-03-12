@@ -4,6 +4,7 @@ import Paper from '@mui/material/Paper';
 import Toolbar from '@mui/material/Toolbar';
 import Title from '../layout/Title';
 import MultiGraph from '../graph/MultiGraph';
+import Barchart from '../barchart/Barchart';
 import Heatmap from '../heatmap/Heatmap';
 import Result from '../result/Result';
 import Button from '@mui/material/Button';
@@ -22,7 +23,7 @@ export default function Home() {
       <Toolbar />
       <Container maxWidth="lg" sx={{ mt: 4, mb: 4 }}>
         <Grid container spacing={3}>
-          {/* Sensors Multigraph */}
+          {/* Multigraph */}
           <Grid item xs={12} md={12} lg={12}>
             <Paper
               sx={{
@@ -33,16 +34,17 @@ export default function Home() {
                 height: 430
               }}
             >
-              <Title> Sensors</Title>
+              <Title> Individual Channel </Title>
               <Button
                 onClick={() => {
                   getAndPost();
               }}> 
                 Play demo 
               </Button>
-              <MultiGraph />
+              <Barchart />
             </Paper>
           </Grid>
+          
            {/* Result */}
            <Grid item xs={12} md={6} lg={3}>
             <Paper
@@ -54,11 +56,11 @@ export default function Home() {
                 width: 265,
               }}
             >
-              <Title> Result</Title>
+              <Title> Classification Result</Title>
               <Result />
-              
             </Paper>
           </Grid>
+
           {/* Heatmap */}
           <Grid item xs={12} md={8} lg={4.5}>
             <Paper
@@ -70,22 +72,24 @@ export default function Home() {
                 width: 410,
               }}
             >
-              <Title> Sensors Board </Title>
-              <Heatmap rotate={false} height={340} width={400} />
+              <Title> Channels Intersection </Title>
+              <Heatmap/>
             </Paper>
           </Grid>
-          {/* Heatmap */}
-          <Grid item xs={12} md={8} lg={4.5}>
-          <Paper
+
+           {/* Multigraph */}
+           <Grid item xs={12} md={8} lg={4.5}>
+            <Paper
               sx={{
                 p: 2,
                 display: 'flex',
                 flexDirection: 'column',
                 height: 410,
-                width: 410,
+                width: 515,
               }}
             >
-              <Heatmap rotate={true} height={360} width={380} />
+              <Title> Channels Time Plot </Title>
+              <MultiGraph />
             </Paper>
           </Grid>
         </Grid>

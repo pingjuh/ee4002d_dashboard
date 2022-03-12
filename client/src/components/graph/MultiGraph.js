@@ -48,7 +48,7 @@ export default function MultiGraph () {
   return (
     <>
       <LineChart 
-        width={1200}
+        width={480}
         height={400} 
         data={result}
         margin={{
@@ -59,7 +59,7 @@ export default function MultiGraph () {
         }}
       >
         <XAxis interval={44} dataKey='time' />
-        <YAxis domain={[0, 255]}/>
+        <YAxis domain={[0, 170]}/>
         <CartesianGrid strokeDasharray="3 3" />
         <Tooltip />
         <Legend verticalAlign="bottom" height={1} />
