@@ -3,7 +3,7 @@ import Grid from '@mui/material/Grid';
 import Paper from '@mui/material/Paper';
 import Toolbar from '@mui/material/Toolbar';
 import Title from '../layout/Title';
-import MultiGraph from '../graph/MultiGraph';
+// import MultiGraph from '../graph/MultiGraph';
 import Barchart from '../barchart/Barchart';
 import Heatmap from '../heatmap/Heatmap';
 import Result from '../result/Result';
@@ -65,7 +65,7 @@ export default function Home() {
                 width: 280,
               }}
             >
-              <Title> Channels Intersection </Title>
+              <Title> Smart Sensor Display </Title>
               <Heatmap/>
             </Paper>
           </Grid>

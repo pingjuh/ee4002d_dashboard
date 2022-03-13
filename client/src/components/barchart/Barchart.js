@@ -4,9 +4,7 @@ import {
   Bar, 
   XAxis, 
   YAxis, 
-  CartesianGrid, 
-  Tooltip, 
-  Legend
+  CartesianGrid
 } from 'recharts';
 import SensorContext from '../../context/sensor/sensorContext';
 import Spinner from '../spinner/Spinner';
