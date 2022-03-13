@@ -7,11 +7,6 @@ function Title(props) {
     <Typography variant="body1" color="primary" gutterBottom>
       {props.children}
     </Typography>
-
-    
-
-
-    
   );
 }
 

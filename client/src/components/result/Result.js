@@ -1,6 +1,6 @@
 import React, { useEffect, useState, useContext} from 'react';
 import SensorContext from '../../context/sensor/sensorContext';
-import Spinner from '../layout/Spinner';
+import Spinner from '../spinner/Spinner';
 
 export default function Result() {
   const { data, connected } = useContext(SensorContext);

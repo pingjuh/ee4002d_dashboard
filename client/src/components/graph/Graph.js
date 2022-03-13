@@ -11,7 +11,7 @@ import {
 import PropTypes from 'prop-types';
 // import AlertContext from '../../context/alert/alertContext';
 import SensorContext from '../../context/sensor/sensorContext';
-import Spinner from '../layout/Spinner';
+import Spinner from '../spinner/Spinner';
 import Title from '../layout/Title';
 
 const Graph = ({ channelID, width, height }) => {

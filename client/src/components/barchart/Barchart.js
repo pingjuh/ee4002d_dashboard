@@ -9,7 +9,7 @@ import {
   Legend
 } from 'recharts';
 import SensorContext from '../../context/sensor/sensorContext';
-import Spinner from '../layout/Spinner';
+import Spinner from '../spinner/Spinner';
 
 const Barchart = () => {
   const { data, connected } = useContext(SensorContext);

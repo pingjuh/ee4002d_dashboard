@@ -3,10 +3,11 @@ import Grid from '@mui/material/Grid';
 import Paper from '@mui/material/Paper';
 import Toolbar from '@mui/material/Toolbar';
 import Title from '../layout/Title';
-// import MultiGraph from '../graph/MultiGraph';
+import MultiGraph from '../graph/MultiGraph';
 import Barchart from '../barchart/Barchart';
 import Heatmap from '../heatmap/Heatmap';
 import Result from '../result/Result';
+import Instructions from '../instructions/Instructions';
 import Button from '@mui/material/Button';
 import axios from 'axios';
 
@@ -91,21 +92,19 @@ export default function Home() {
             </Paper>
           </Grid>
 
-           {/* Multigraph */}
-           {/* <Grid item xs={12} md={8} lg={4.5}>
-            <Paper
-              sx={{
-                p: 2,
-                display: 'flex',
-                flexDirection: 'column',
-                height: 410,
-                width: 515,
-              }}
-            >
-              <Title> Channels Time Plot </Title>
-              <MultiGraph />
-            </Paper>
-          </Grid> */}
+        {/* Instructions */}
+        </Grid>
+        <Grid 
+          item lg={6}
+          sx={{
+            p: 5,
+            display: 'flex',
+            flexDirection: 'column',
+            height: 280,
+            width: 600,
+          }}
+        >
+          <Instructions/>
         </Grid>
       </Container>
     </>

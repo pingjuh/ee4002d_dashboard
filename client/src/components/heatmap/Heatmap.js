@@ -1,7 +1,7 @@
 import React, { useState ,useEffect ,useContext } from 'react'
 import ReactApexChart from 'react-apexcharts';
 import SensorContext from '../../context/sensor/sensorContext';
-import Spinner from '../layout/Spinner';
+import Spinner from '../spinner/Spinner';
 import HeatmapContext from '../../context/heatmap/heatmapContext';
 import Button from '@mui/material/Button';
 import RestartAltIcon from '@mui/icons-material/RestartAlt';
