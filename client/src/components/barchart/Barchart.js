@@ -6,8 +6,7 @@ import {
   YAxis, 
   CartesianGrid, 
   Tooltip, 
-  Legend, 
-  ResponsiveContainer 
+  Legend
 } from 'recharts';
 import SensorContext from '../../context/sensor/sensorContext';
 import Spinner from '../layout/Spinner';
@@ -20,10 +19,11 @@ const Barchart = () => {
   if (connected) {
     sensor0 = data["sensorsReading"][0];
     sensors = data["sensorsReading"];
+    const max = 170;
     resultObj = sensors.map((el, i) => {
       return {
-        channel: i+1,
-        Channels: el
+        channel: i + 1,
+        Channels: max - el
       }
     });
     // remove last element (result) of resultObj
@@ -41,22 +41,20 @@ const Barchart = () => {
 
   return (
     <BarChart
-      width={1200}
-      height={400}
+      width={500}
+      height={200}
       data={result}
       margin={{
         top: 0,
-        right: 10,
+        right: 0,
         left: 0,
-        bottom: 100,
+        bottom: 0,
       }}
       >
       <CartesianGrid strokeDasharray="3 3" />
       <XAxis dataKey="channel" padding={{ left: 10, right: 10 }} />
       <YAxis domain={[0, 170]}/>
-      <Tooltip />
-      <Legend verticalAlign="bottom" height={1}/>
-      <Bar dataKey="Channels" fill="#128FD9" />
+      <Bar dataKey="Channels" fill="#128FD9"/>
     </BarChart>
   )
 }

@@ -20,19 +20,20 @@ export default function MultiGraph () {
     sensor0 = data["sensorsReading"][0];
     sensors = data["sensorsReading"];
     time = data["inserted"].slice(14,22) // min:sec:millisec
+    const max = 170;
     resultObj = {
-      ch0: sensors[0],
-      ch1: sensors[1],
-      ch2: sensors[2],
-      ch3: sensors[3],
-      ch4: sensors[4],
-      ch5: sensors[5],
-      ch6: sensors[6],
-      ch7: sensors[7],
-      ch8: sensors[8],
-      ch9: sensors[9],
-      ch10: sensors[10],
-      ch11: sensors[11],
+      ch0: max - sensors[0],
+      ch1: max - sensors[1],
+      ch2: max - sensors[2],
+      ch3: max -sensors[3],
+      ch4: max - sensors[4],
+      ch5: max - sensors[5],
+      ch6: max - sensors[6],
+      ch7: max - sensors[7],
+      ch8: max - sensors[8],
+      ch9: max - sensors[9],
+      ch10: max - sensors[10],
+      ch11: max - sensors[11],
       time
     }
   }

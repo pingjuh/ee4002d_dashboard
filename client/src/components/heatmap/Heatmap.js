@@ -4,6 +4,8 @@ import SensorContext from '../../context/sensor/sensorContext';
 import Spinner from '../layout/Spinner';
 import HeatmapContext from '../../context/heatmap/heatmapContext';
 import Button from '@mui/material/Button';
+import IconButton from '@mui/material/IconButton';
+import RestartAltIcon from '@mui/icons-material/RestartAlt';
 
 export default function Heatmap() {
   const { data, connected } = useContext(SensorContext);
@@ -159,6 +161,16 @@ export default function Heatmap() {
       curve: "smooth",
       width: 1,
     },
+    xaxis: {
+      labels: {
+        show: false
+      }
+    },
+    yaxis: {
+      labels: {
+        show: false
+      }
+    },
     // colors: ["#008FFB"],
     plotOptions: {
       heatmap: {
@@ -184,10 +196,17 @@ export default function Heatmap() {
     },
   };
 
-
   return (
     <>
-    <Button
+    <ReactApexChart
+      options={options}
+      series={series}
+      type="heatmap"
+      height= {230}
+      width={230}
+    />
+     <Button
+     variant="contained"
     onClick={() => {
       setCh0Ch5(0);
       setCh0Ch6(0);
@@ -225,15 +244,8 @@ export default function Heatmap() {
       setCh4Ch10(0);
       setCh4Ch11(0);
     }}> 
-      Reset
+       <RestartAltIcon />
     </Button>
-    <ReactApexChart
-      options={options}
-      series={series}
-      type="heatmap"
-      height= {340}
-      width={400}
-    />
     </>
   );
 }

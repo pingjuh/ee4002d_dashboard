@@ -17,9 +17,9 @@ export default function Result() {
   
 
   const style = {
-    fontSize: "100px",
+    fontSize: "150px",
     textAlign: "center",
-    marginTop: "20px",
+    marginTop: "0px",
     marginBottom: "20px",
     color: "#3B3B3B"
   }
