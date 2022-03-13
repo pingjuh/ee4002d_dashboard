@@ -9,6 +9,7 @@ import AssignmentIcon from '@mui/icons-material/Assignment';
 import AutoGraphIcon from '@mui/icons-material/AutoGraph';
 import InfoIcon from '@mui/icons-material/Info';
 import { useHistory, useLocation } from 'react-router-dom';
+import Board from './Board';
 
 const useStyles = makeStyles({
   active : {
@@ -66,6 +67,9 @@ export default function MainListItems() {
         </ListItemIcon>
         <ListItemText primary="Past Results" />
       </ListItem>   
+      <ListItem>
+        <Board />
+      </ListItem>
     </List>
   )
 }
