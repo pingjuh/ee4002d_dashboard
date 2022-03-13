@@ -205,7 +205,8 @@ export default function Heatmap() {
       width={230}
     />
      <Button
-     variant="contained"
+     size = "small"
+     variant="outlined"
     onClick={() => {
       setCh0Ch5(0);
       setCh0Ch6(0);
@@ -243,7 +244,7 @@ export default function Heatmap() {
       setCh4Ch10(0);
       setCh4Ch11(0);
     }}> 
-       <RestartAltIcon />
+       <RestartAltIcon/>
     </Button>
     </>
   );

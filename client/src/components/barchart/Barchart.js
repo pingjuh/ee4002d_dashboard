@@ -46,12 +46,12 @@ const Barchart = () => {
         top: 0,
         right: 0,
         left: 0,
-        bottom: 0,
+        bottom: 10,
       }}
       >
-      <CartesianGrid strokeDasharray="3 3" />
-      <XAxis dataKey="channel" padding={{ left: 10, right: 10 }} />
-      <YAxis domain={[0, 170]}/>
+      <CartesianGrid strokeDasharray="1 1" />
+      <XAxis dataKey="channel" padding={{ left: 0, right: 0 }} />
+      <YAxis domain={[0, 170]} axisLine={false} tick={false}/>
       <Bar dataKey="Channels" fill="#128FD9"/>
     </BarChart>
   )

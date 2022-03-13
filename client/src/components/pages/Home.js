@@ -2,13 +2,14 @@ import Container from '@mui/material/Container';
 import Grid from '@mui/material/Grid';
 import Paper from '@mui/material/Paper';
 import Toolbar from '@mui/material/Toolbar';
+import Button from '@mui/material/Button';
 import Title from '../layout/Title';
 // import MultiGraph from '../graph/MultiGraph';
 import Barchart from '../barchart/Barchart';
 import Heatmap from '../heatmap/Heatmap';
 import Result from '../result/Result';
 import Instructions from '../instructions/Instructions';
-import Button from '@mui/material/Button';
+import Info from '../info/Info';
 import axios from 'axios';
 
 export default function Home() {
@@ -91,20 +92,32 @@ export default function Home() {
               <Barchart />
             </Paper>
           </Grid>
-
-        {/* Instructions */}
-        </Grid>
-        <Grid 
-          item lg={6}
-          sx={{
-            p: 5,
-            display: 'flex',
-            flexDirection: 'column',
-            height: 280,
-            width: 600,
-          }}
-        >
-          <Instructions/>
+          {/* Info */}
+          <Grid 
+            item xs={6}
+            sx={{
+              p: 2,
+              display: 'flex',
+              flexDirection: 'column',
+              height: 280,
+              width: 300,
+            }}
+          >
+            <Info/>
+          </Grid>
+          {/* Instructions */}
+          <Grid 
+            item xs={6}
+            sx={{
+              p: 2,
+              display: 'flex',
+              flexDirection: 'column',
+              height: 280,
+              width: 300,
+            }}
+          >
+            <Instructions/>
+          </Grid>
         </Grid>
       </Container>
     </>
