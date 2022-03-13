@@ -18,7 +18,7 @@ const Instructions = () => {
         Instructions
       </Title>
       <Typography variant="body1" color="#3B3B3B" gutterBottom>
-      ✍️ Draw a digit on the Capactive Touch Sensor and Smart Sensor
+      ✍️ Draw a digit on the Capactive Touch Pad and Smart Sensor
         will display the digit on the screen.
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
