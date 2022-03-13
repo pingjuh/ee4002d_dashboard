@@ -4,7 +4,6 @@ import SensorContext from '../../context/sensor/sensorContext';
 import Spinner from '../layout/Spinner';
 import HeatmapContext from '../../context/heatmap/heatmapContext';
 import Button from '@mui/material/Button';
-import IconButton from '@mui/material/IconButton';
 import RestartAltIcon from '@mui/icons-material/RestartAlt';
 
 export default function Heatmap() {

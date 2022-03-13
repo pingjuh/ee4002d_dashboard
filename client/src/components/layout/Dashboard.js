@@ -12,13 +12,10 @@ import Link from '@mui/material/Link';
 import MenuIcon from '@mui/icons-material/Menu';
 import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
 import MainListItems from './ListItems';
-import { connect, disconnect, start, stop, reset } from '../bluetooth/Bluetooth';
+import { connect, stop, start } from '../bluetooth/Bluetooth';
 import BluetoothIcon from '@mui/icons-material/Bluetooth';
 import PlayCircleFilledWhiteOutlinedIcon from '@mui/icons-material/PlayCircleFilledWhiteOutlined';
 import StopCircleOutlinedIcon from '@mui/icons-material/StopCircleOutlined';
-import RestartAltIcon from '@mui/icons-material/RestartAlt';
-import BluetoothDisabledIcon from '@mui/icons-material/BluetoothDisabled';
-
 
 function Copyright(props) {
   return (
@@ -130,13 +127,6 @@ export default function Dashboard(props) {
             <IconButton
               color="inherit"
               onClick={() => {
-                disconnect();
-              }}>
-              <BluetoothDisabledIcon />
-            </IconButton>
-            <IconButton
-              color="inherit"
-              onClick={() => {
                 start();
               }}>
               <PlayCircleFilledWhiteOutlinedIcon />
@@ -147,13 +137,6 @@ export default function Dashboard(props) {
                 stop();
               }}>
               <StopCircleOutlinedIcon />
-            </IconButton>
-            <IconButton
-              color="inherit"
-              onClick={() => {
-                reset();
-              }}>
-              <RestartAltIcon />
             </IconButton>
           </Toolbar>
         </AppBar>

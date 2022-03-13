@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React from 'react';
 import { makeStyles } from '@mui/styles';
 import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
@@ -9,7 +9,8 @@ import AssignmentIcon from '@mui/icons-material/Assignment';
 import AutoGraphIcon from '@mui/icons-material/AutoGraph';
 import InfoIcon from '@mui/icons-material/Info';
 import { useHistory, useLocation } from 'react-router-dom';
-import Board from './Board';
+import Board from '../board/Board';
+import Status from '../status/Status';
 
 const useStyles = makeStyles({
   active : {
@@ -66,7 +67,10 @@ export default function MainListItems() {
           <AssignmentIcon />
         </ListItemIcon>
         <ListItemText primary="Past Results" />
-      </ListItem>   
+      </ListItem> 
+      <ListItem style={{ justifyContent:'center' }}>
+         <Status/>
+      </ListItem>
       <ListItem>
         <Board />
       </ListItem>
