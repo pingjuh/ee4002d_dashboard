@@ -106,34 +106,34 @@ export default function Heatmap() {
 
   const series = [
     {
-      name: "12",
+      name: "H7",
       data: seventhRow
 
     },
     {
-      name: "11",
+      name: "H6",
       data: sixthRow
 
     },
     {
-      name: "10",
+      name: "H5",
       data: fifthRow
 
     },
     {
-      name: "9",
+      name: "H4",
       data: fourthRow
     },
     {
-      name: "8",
+      name: "H3",
       data: thirdRow
     },
     {
-      name: "7",
+      name: "H2",
       data: secondRow
     },
     {
-      name: "6",
+      name: "H1",
       data: firstRow
     },
   ];
@@ -162,12 +162,14 @@ export default function Heatmap() {
     },
     xaxis: {
       labels: {
-        show: false
-      }
+        show: true
+      },
+      type: 'category',
+      categories: ['V1','V2','V3','V4','V5']
     },
     yaxis: {
       labels: {
-        show: false
+        show: true
       }
     },
     // colors: ["#008FFB"],
@@ -181,13 +183,49 @@ export default function Heatmap() {
               from: 0,
               to: 0,
               name: 'Untouch',
-              color: '#D3D3D3'
+              color: '#d3d3d3'
             },
             {
               from: 1,
               to: 1,
-              name: 'Touched',
-              color: '#128FD9'
+              name: 'Lv1',
+              color: '#e7feff'
+            },
+            {
+              from: 2,
+              to: 2,
+              name: 'Lv2',
+              color: '#87ceeb'
+            },
+            {
+              from: 3,
+              to: 3,
+              name: 'Lv3',
+              color: '#00bfff'
+            },
+            {
+              from: 4,
+              to: 4,
+              name: 'Lv4',
+              color: '#4682b4'
+            },
+            {
+              from: 5,
+              to: 5,
+              name: 'Lv5',
+              color: '#0000cd'
+            },
+            {
+              from: 6,
+              to: 6,
+              name: 'Lv6',
+              color: '#00008b'
+            },
+            {
+              from: 7,
+              to: 7,
+              name: 'Lv7',
+              color: '#000080'
             }
           ]
         }

@@ -4,12 +4,9 @@ import Paper from '@mui/material/Paper';
 import Toolbar from '@mui/material/Toolbar';
 import Button from '@mui/material/Button';
 import Title from '../layout/Title';
-// import MultiGraph from '../graph/MultiGraph';
 import Barchart from '../barchart/Barchart';
 import Heatmap from '../heatmap/Heatmap';
 import Result from '../result/Result';
-import Instructions from '../instructions/Instructions';
-import Info from '../info/Info';
 import axios from 'axios';
 
 export default function Home() {
@@ -27,7 +24,7 @@ export default function Home() {
         <Grid container spacing={3}>
           {/* Classification Result */}
           <Grid 
-            item lg={3}
+            item lg={6}
             container
             spacing={0}
             direction="column"
@@ -50,7 +47,7 @@ export default function Home() {
 
           {/* Heatmap */}
           <Grid 
-            item lg={3}
+            item lg={6}
             container
             spacing={0}
             direction="column"
@@ -72,13 +69,13 @@ export default function Home() {
           </Grid>
 
           {/* Barchart */}
-          <Grid item lg={6}>
+          <Grid item lg={12}>
             <Paper
               sx={{
                 p: 2,
                 display: 'flex',
                 flexDirection: 'column',
-                width: 560,
+                width: 1150,
                 height: 280
               }}
             >
@@ -91,32 +88,6 @@ export default function Home() {
               </Button>
               <Barchart />
             </Paper>
-          </Grid>
-          {/* Info */}
-          <Grid 
-            item xs={6}
-            sx={{
-              p: 2,
-              display: 'flex',
-              flexDirection: 'column',
-              height: 280,
-              width: 300,
-            }}
-          >
-            <Info/>
-          </Grid>
-          {/* Instructions */}
-          <Grid 
-            item xs={6}
-            sx={{
-              p: 2,
-              display: 'flex',
-              flexDirection: 'column',
-              height: 280,
-              width: 300,
-            }}
-          >
-            <Instructions/>
           </Grid>
         </Grid>
       </Container>
