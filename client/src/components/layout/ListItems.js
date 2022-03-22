@@ -5,7 +5,7 @@ import ListItem from '@mui/material/ListItem';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
 import DashboardIcon from '@mui/icons-material/Dashboard';
-import AssignmentIcon from '@mui/icons-material/Assignment';
+import HistoryIcon from '@mui/icons-material/History';
 import AutoGraphIcon from '@mui/icons-material/AutoGraph';
 import InfoIcon from '@mui/icons-material/Info';
 import { useHistory, useLocation } from 'react-router-dom';
@@ -64,7 +64,7 @@ export default function MainListItems() {
         className={location.pathname === '/history' ? classes.active : ''}
       >
         <ListItemIcon>
-          <AssignmentIcon />
+          <HistoryIcon />
         </ListItemIcon>
         <ListItemText primary="Past Results" />
       </ListItem> 
