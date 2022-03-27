@@ -182,49 +182,49 @@ export default function Heatmap() {
           ranges: [{
               from: 0,
               to: 0,
-              name: 'Untouch',
+              name: ' ',
               color: '#d3d3d3'
             },
             {
               from: 1,
               to: 1,
-              name: 'Lv1',
+              name: ' ',
               color: '#e7feff'
             },
             {
               from: 2,
               to: 2,
-              name: 'Lv2',
+              name: ' ',
               color: '#87ceeb'
             },
             {
               from: 3,
               to: 3,
-              name: 'Lv3',
+              name: ' ',
               color: '#00bfff'
             },
             {
               from: 4,
               to: 4,
-              name: 'Lv4',
+              name: ' ',
               color: '#4682b4'
             },
             {
               from: 5,
               to: 5,
-              name: 'Lv5',
+              name: ' ',
               color: '#0000cd'
             },
             {
               from: 6,
               to: 6,
-              name: 'Lv6',
+              name: ' ',
               color: '#00008b'
             },
             {
               from: 7,
               to: 7,
-              name: 'Lv7',
+              name: ' ',
               color: '#000080'
             }
           ]
