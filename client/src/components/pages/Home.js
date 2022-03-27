@@ -55,12 +55,12 @@ export default function Home() {
             alignItems="center"
             justifyContent="center"
           >
-            <img src={heatmapLegend} style={{ width: '30px', height: '352px', margin: 'auto', display: 'block' }} /> 
+            <img src={heatmapLegend} style={{ width: '122px', height: '354px', margin: 'auto', display: 'block' }} /> 
           </Grid>
 
           {/* Heatmap */}
           <Grid 
-            item lg={1}
+            item lg={4}
             container
             spacing={0}
             direction="column"
