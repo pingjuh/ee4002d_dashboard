@@ -8,6 +8,7 @@ import Barchart from '../barchart/Barchart';
 import Heatmap from '../heatmap/Heatmap';
 import Result from '../result/Result';
 import axios from 'axios';
+import heatmapLegend from '../heatmap/heatmapLegend.png';
 
 export default function Home() {
   const getAndPost = async () => {
@@ -24,7 +25,7 @@ export default function Home() {
         <Grid container spacing={3}>
           {/* Classification Result */}
           <Grid 
-            item lg={6}
+            item lg={4}
             container
             spacing={0}
             direction="column"
@@ -44,10 +45,22 @@ export default function Home() {
               <Result />
             </Paper>
           </Grid>
+          
+          {/* Heatmap Legend */}
+          <Grid 
+            item lg={4}
+            container
+            spacing={0}
+            direction="column"
+            alignItems="center"
+            justifyContent="center"
+          >
+            <img src={heatmapLegend} style={{ width: '30px', height: '352px', margin: 'auto', display: 'block' }} /> 
+          </Grid>
 
           {/* Heatmap */}
           <Grid 
-            item lg={6}
+            item lg={4}
             container
             spacing={0}
             direction="column"
