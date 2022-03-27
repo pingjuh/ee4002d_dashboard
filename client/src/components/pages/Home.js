@@ -25,7 +25,7 @@ export default function Home() {
         <Grid container spacing={3}>
           {/* Classification Result */}
           <Grid 
-            item lg={4}
+            item lg={6}
             container
             spacing={0}
             direction="column"
@@ -48,7 +48,7 @@ export default function Home() {
           
           {/* Heatmap Legend */}
           <Grid 
-            item lg={4}
+            item lg={1}
             container
             spacing={0}
             direction="column"
@@ -60,7 +60,7 @@ export default function Home() {
 
           {/* Heatmap */}
           <Grid 
-            item lg={4}
+            item lg={1}
             container
             spacing={0}
             direction="column"
