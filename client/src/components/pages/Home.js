@@ -23,29 +23,6 @@ export default function Home() {
       <Toolbar />
       <Container maxWidth="lg" sx={{ mt: 4, mb: 4 }}>
         <Grid container spacing={3}>
-          {/* Classification Result */}
-          <Grid 
-            item lg={6}
-            container
-            spacing={0}
-            direction="column"
-            alignItems="center"
-            justifyContent="center"
-          >
-            <Paper
-              sx={{
-                p: 2,
-                display: 'flex',
-                flexDirection: 'column',
-                height: 280,
-                width: 280,
-              }}
-            >
-              <Title> Classification Result </Title>
-              <Result />
-            </Paper>
-          </Grid>
-          
           {/* Heatmap Legend */}
           <Grid 
             item lg={1}
@@ -81,6 +58,29 @@ export default function Home() {
             </Paper>
           </Grid>
 
+          {/* Classification Result */}
+          <Grid 
+            item lg={6}
+            container
+            spacing={0}
+            direction="column"
+            alignItems="center"
+            justifyContent="center"
+          >
+            <Paper
+              sx={{
+                p: 2,
+                display: 'flex',
+                flexDirection: 'column',
+                height: 280,
+                width: 280,
+              }}
+            >
+              <Title> Classification Result </Title>
+              <Result />
+            </Paper>
+          </Grid>
+          
           {/* Barchart */}
           <Grid item lg={12}>
             <Paper
