@@ -32,7 +32,7 @@ const Barchart = () => {
       {channel:'H6', Channels:max-sensors[10]},
       {channel:'H7', Channels:max-sensors[11]},
     ];
-    console.log(resultObj);
+    // console.log(resultObj);
   }
 
   useEffect(() => {
