@@ -56,7 +56,7 @@ void loop() {
     Serial.println(" ");
     int k = 0;
     while (central.connected()) {
-      if (k == 50) k = 0;
+      if (k == 150) k = 0;
       // Draw the number '5' on the heatmap
       if (k == 0) {
         data[0] = random(140, 155);
@@ -214,6 +214,306 @@ void loop() {
         data[9] = random(0, 20);
         data[10] = random(140, 155);
         data[11] = random(140, 155);
+      } else if (k >= 12 && k <= 50) {
+        data[0] = 155;
+        data[1] = 155;
+        data[2] = 155;
+        data[3] = 155;
+        data[4] = 155;
+        data[5] = 155;
+        data[6] = 155;
+        data[7] = 155;
+        data[8] = 155;
+        data[9] = 155;
+        data[10] = 155;
+        data[11] = 155;
+      } else if (k == 51) {
+        // Draw the number '1' on the heatmap
+        data[0] = random(140, 155);
+        data[1] = random(140, 155);
+        data[2] = random(0, 20);
+        data[3] = random(140, 155);
+        data[4] = random(140, 155);
+        data[5] = random(0, 20);
+        data[6] = random(140, 155);
+        data[7] = random(140, 155);
+        data[8] = random(140, 155);
+        data[9] = random(140, 155);
+        data[10] = random(140, 155);
+        data[11] = random(140, 155);
+      } else if (k == 52) {
+        data[0] = random(140, 155);
+        data[1] = random(140, 155);
+        data[2] = random(0, 20);
+        data[3] = random(140, 155);
+        data[4] = random(140, 155);
+        data[5] = random(140, 155);
+        data[6] = random(0, 20);
+        data[7] = random(140, 155);
+        data[8] = random(140, 155);
+        data[9] = random(140, 155);
+        data[10] = random(140, 155);
+        data[11] = random(140, 155);
+      } else if (k == 53) {
+        data[0] = random(140, 155);
+        data[1] = random(140, 155);
+        data[2] = random(0, 20);
+        data[3] = random(140, 155);
+        data[4] = random(140, 155);
+        data[5] = random(140, 155);
+        data[6] = random(140, 155);
+        data[7] = random(0, 20);
+        data[8] = random(140, 155);
+        data[9] = random(140, 155);
+        data[10] = random(140, 155);
+        data[11] = random(140, 155);
+      } else if (k == 54) {
+        data[0] = random(140, 155);
+        data[1] = random(140, 155);
+        data[2] = random(0, 20);
+        data[3] = random(140, 155);
+        data[4] = random(140, 155);
+        data[5] = random(140, 155);
+        data[6] = random(140, 155);
+        data[7] = random(140, 155);
+        data[8] = random(0, 20);
+        data[9] = random(140, 155);
+        data[10] = random(140, 155);
+        data[11] = random(140, 155);
+      } else if (k == 55) {
+        data[0] = random(140, 155);
+        data[1] = random(140, 155);
+        data[2] = random(0, 20);
+        data[3] = random(140, 155);
+        data[4] = random(140, 155);
+        data[5] = random(140, 155);
+        data[6] = random(140, 155);
+        data[7] = random(140, 155);
+        data[8] = random(140, 155);
+        data[9] = random(0, 20);
+        data[10] = random(140, 155);
+        data[11] = random(140, 155);
+      } else if (k == 56) {
+        data[0] = random(140, 155);
+        data[1] = random(140, 155);
+        data[2] = random(0, 20);
+        data[3] = random(140, 155);
+        data[4] = random(140, 155);
+        data[5] = random(140, 155);
+        data[6] = random(140, 155);
+        data[7] = random(140, 155);
+        data[8] = random(140, 155);
+        data[9] = random(140, 155);
+        data[10] = random(0, 20);
+        data[11] = random(140, 155);
+      } else if (k == 57) {
+        data[0] = random(140, 155);
+        data[1] = random(140, 155);
+        data[2] = random(0, 20);
+        data[3] = random(140, 155);
+        data[4] = random(140, 155);
+        data[5] = random(140, 155);
+        data[6] = random(140, 155);
+        data[7] = random(140, 155);
+        data[8] = random(140, 155);
+        data[9] = random(140, 155);
+        data[10] = random(140, 155);
+        data[11] = random(0, 20);
+      } else if (k >= 58 && k <= 100) {
+        data[0] = 155;
+        data[1] = 155;
+        data[2] = 155;
+        data[3] = 155;
+        data[4] = 155;
+        data[5] = 155;
+        data[6] = 155;
+        data[7] = 155;
+        data[8] = 155;
+        data[9] = 155;
+        data[10] = 155;
+        data[11] = 155;
+      } else if (k == 101) {
+        data[0] = random(140, 155);
+        data[1] = random(140, 155);
+        data[2] = random(140, 155);
+        data[3] = random(0, 20);
+        data[4] = random(140, 155);
+        data[5] = random(0, 20);
+        data[6] = random(140, 155);
+        data[7] = random(140, 155);
+        data[8] = random(140, 155);
+        data[9] = random(140, 155);
+        data[10] = random(140, 155);
+        data[11] = random(140, 155);
+      } else if (k == 102) {
+        data[0] = random(140, 155);
+        data[1] = random(140, 155);
+        data[2] = random(0, 20);
+        data[3] = random(140, 155);
+        data[4] = random(140, 155);
+        data[5] = random(140, 155);
+        data[6] = random(0, 20);
+        data[7] = random(140, 155);
+        data[8] = random(140, 155);
+        data[9] = random(140, 155);
+        data[10] = random(140, 155);
+        data[11] = random(140, 155);
+      } else if (k == 103) {
+        data[0] = random(140, 155);
+        data[1] = random(0, 20);
+        data[2] = random(140, 155);
+        data[3] = random(140, 155);
+        data[4] = random(140, 155);
+        data[5] = random(140, 155);
+        data[6] = random(140, 155);
+        data[7] = random(0, 20);
+        data[8] = random(140, 155);
+        data[9] = random(140, 155);
+        data[10] = random(140, 155);
+        data[11] = random(140, 155);
+      } else if (k == 104) {
+        data[0] = random(0, 20);
+        data[1] = random(140, 155);
+        data[2] = random(140, 155);
+        data[3] = random(140, 155);
+        data[4] = random(140, 155);
+        data[5] = random(140, 155);
+        data[6] = random(140, 155);
+        data[7] = random(140, 155);
+        data[8] = random(0, 20);
+        data[9] = random(140, 155);
+        data[10] = random(140, 155);
+        data[11] = random(140, 155);
+      } else if (k == 105) {
+        data[0] = random(140, 155);
+        data[1] = random(0, 20);
+        data[2] = random(140, 155);
+        data[3] = random(140, 155);
+        data[4] = random(140, 155);
+        data[5] = random(140, 155);
+        data[6] = random(140, 155);
+        data[7] = random(140, 155);
+        data[8] = random(0, 20);
+        data[9] = random(140, 155);
+        data[10] = random(140, 155);
+        data[11] = random(140, 155);
+      } else if (k == 106) {
+        data[0] = random(140, 155);
+        data[1] = random(140, 155);
+        data[2] = random(0, 20);
+        data[3] = random(140, 155);
+        data[4] = random(140, 155);
+        data[5] = random(140, 155);
+        data[6] = random(140, 155);
+        data[7] = random(140, 155);
+        data[8] = random(0, 20);
+        data[9] = random(140, 155);
+        data[10] = random(140, 155);
+        data[11] = random(140, 155);
+      } else if (k == 107) {
+        data[0] = random(140, 155);
+        data[1] = random(140, 155);
+        data[2] = random(140, 155);
+        data[3] = random(0, 20);
+        data[4] = random(140, 155);
+        data[5] = random(140, 155);
+        data[6] = random(140, 155);
+        data[7] = random(140, 155);
+        data[8] = random(0, 20);
+        data[9] = random(140, 155);
+        data[10] = random(140, 155);
+        data[11] = random(140, 155);
+      } else if (k == 108) {
+        data[0] = random(140, 155);
+        data[1] = random(140, 155);
+        data[2] = random(140, 155);
+        data[3] = random(140, 155);
+        data[4] = random(0, 20);
+        data[5] = random(140, 155);
+        data[6] = random(140, 155);
+        data[7] = random(140, 155);
+        data[8] = random(0, 20);
+        data[9] = random(140, 155);
+        data[10] = random(140, 155);
+        data[11] = random(140, 155);
+      } else if (k == 109) {
+        data[0] = random(140, 155);
+        data[1] = random(140, 155);
+        data[2] = random(140, 155);
+        data[3] = random(0, 20);
+        data[4] = random(140, 155);
+        data[5] = random(140, 155);
+        data[6] = random(0, 20);
+        data[7] = random(140, 155);
+        data[8] = random(140, 155);
+        data[9] = random(140, 155);
+        data[10] = random(140, 155);
+        data[11] = random(140, 155);
+      } else if (k == 110) {
+        data[0] = random(140, 155);
+        data[1] = random(140, 155);
+        data[2] = random(140, 155);
+        data[3] = random(0, 20);
+        data[4] = random(140, 155);
+        data[5] = random(140, 155);
+        data[6] = random(140, 155);
+        data[7] = random(0, 20);
+        data[8] = random(140, 155);
+        data[9] = random(140, 155);
+        data[10] = random(140, 155);
+        data[11] = random(140, 155);
+      } else if (k == 111) {
+        data[0] = random(140, 155);
+        data[1] = random(140, 155);
+        data[2] = random(140, 155);
+        data[3] = random(0, 20);
+        data[4] = random(140, 155);
+        data[5] = random(140, 155);
+        data[6] = random(140, 155);
+        data[7] = random(140, 155);
+        data[8] = random(0, 20);
+        data[9] = random(140, 155);
+        data[10] = random(140, 155);
+        data[11] = random(140, 155);
+      } else if (k == 112) {
+        data[0] = random(140, 155);
+        data[1] = random(140, 155);
+        data[2] = random(140, 155);
+        data[3] = random(0, 20);
+        data[4] = random(140, 155);
+        data[5] = random(140, 155);
+        data[6] = random(140, 155);
+        data[7] = random(140, 155);
+        data[8] = random(140, 155);
+        data[9] = random(0, 20);
+        data[10] = random(140, 155);
+        data[11] = random(140, 155);
+      } else if (k == 113) {
+        data[0] = random(140, 155);
+        data[1] = random(140, 155);
+        data[2] = random(140, 155);
+        data[3] = random(0, 20);
+        data[4] = random(140, 155);
+        data[5] = random(140, 155);
+        data[6] = random(140, 155);
+        data[7] = random(140, 155);
+        data[8] = random(140, 155);
+        data[9] = random(140, 155);
+        data[10] = random(0, 20);
+        data[11] = random(140, 155);
+      } else if (k == 114) {
+        data[0] = random(140, 155);
+        data[1] = random(140, 155);
+        data[2] = random(140, 155);
+        data[3] = random(0, 20);
+        data[4] = random(140, 155);
+        data[5] = random(140, 155);
+        data[6] = random(140, 155);
+        data[7] = random(140, 155);
+        data[8] = random(140, 155);
+        data[9] = random(140, 155);
+        data[10] = random(140, 155);
+        data[11] = random(0, 20);
       } else {
         data[0] = 155;
         data[1] = 155;
@@ -228,7 +528,15 @@ void loop() {
         data[10] = 155;
         data[11] = 155;
       }
-      data[12] = (k > 30) ? 5 : 0;
+      if (k >= 30 && k <= 50) {
+        data[12] = 5;
+      } else if (k >= 80 && k <= 100) {
+        data[12] = 1;
+      } else if (k >= 130 && k <= 150) {
+        data[12] = 4;
+      } else {
+        data[12] = 0;
+      }
       gestureCharacteristic.writeValue(&data, sizeof(data));
       for (int i = 0; i < BLE_BUFFER_SIZE; i++) {
         Serial.print(data[i], DEC);
