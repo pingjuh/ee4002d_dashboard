@@ -183,49 +183,49 @@ export default function Heatmap() {
               from: 0,
               to: 0,
               name: ' ',
-              color: '#d3d3d3'
+              color: '#f2f6fc'
             },
             {
               from: 1,
               to: 1,
               name: ' ',
-              color: '#e7feff'
+              color: '#dde6f3'
             },
             {
               from: 2,
               to: 2,
               name: ' ',
-              color: '#87ceeb'
+              color: '#b9cee1'
             },
             {
               from: 3,
               to: 3,
               name: ' ',
-              color: '#00bfff'
+              color: '#97b7d5'
             },
             {
               from: 4,
               to: 4,
               name: ' ',
-              color: '#4682b4'
+              color: '#6792bf'
             },
             {
               from: 5,
               to: 5,
               name: ' ',
-              color: '#0000cd'
+              color: '#4971ac'
             },
             {
               from: 6,
               to: 6,
               name: ' ',
-              color: '#00008b'
+              color: '#345698'
             },
             {
               from: 7,
               to: 7,
               name: ' ',
-              color: '#000080'
+              color: '#243c78'
             }
           ]
         }

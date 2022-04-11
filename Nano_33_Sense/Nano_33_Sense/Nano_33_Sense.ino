@@ -61,8 +61,8 @@ void loop() {
       if (k == 0) {
         data[0] = random(140, 155);
         data[1] = random(0, 20);
-        data[2] = random(0, 20);
-        data[3] = random(0, 20);
+        data[2] = random(140, 155);
+        data[3] = random(140, 155);
         data[4] = random(140, 155);
         data[5] = random(0, 20);
         data[6] = random(140, 155);
@@ -73,18 +73,31 @@ void loop() {
         data[11] = random(140, 155);
       } else if (k == 1) {
         data[0] = random(140, 155);
-        data[1] = random(0, 20);
-        data[2] = random(140, 155);
+        data[1] = random(140, 155);
+        data[2] = random(0, 20);
         data[3] = random(140, 155);
         data[4] = random(140, 155);
-        data[5] = random(140, 155);
-        data[6] = random(0, 20);
-        data[7] = random(0, 20);
+        data[5] = random(0, 20);
+        data[6] = random(140, 155);
+        data[7] = random(140, 155);
         data[8] = random(140, 155);
         data[9] = random(140, 155);
         data[10] = random(140, 155);
         data[11] = random(140, 155);
       } else if (k == 2) {
+        data[0] = random(140, 155);
+        data[1] = random(140, 155);
+        data[2] = random(140, 155);
+        data[3] = random(0, 20);
+        data[4] = random(140, 155);
+        data[5] = random(0, 20);
+        data[6] = random(140, 155);
+        data[7] = random(140, 155);
+        data[8] = random(140, 155);
+        data[9] = random(140, 155);
+        data[10] = random(140, 155);
+        data[11] = random(140, 155);
+      } else if (k == 3) {
         data[0] = random(140, 155);
         data[1] = random(0, 20);
         data[2] = random(140, 155);
@@ -92,12 +105,25 @@ void loop() {
         data[4] = random(140, 155);
         data[5] = random(140, 155);
         data[6] = random(0, 20);
+        data[7] = random(140, 155);
+        data[8] = random(140, 155);
+        data[9] = random(140, 155);
+        data[10] = random(140, 155);
+        data[11] = random(140, 155);
+      } else if (k == 4) {
+        data[0] = random(140, 155);
+        data[1] = random(0, 20);
+        data[2] = random(140, 155);
+        data[3] = random(140, 155);
+        data[4] = random(140, 155);
+        data[5] = random(140, 155);
+        data[6] = random(140, 155);
         data[7] = random(0, 20);
         data[8] = random(140, 155);
         data[9] = random(140, 155);
         data[10] = random(140, 155);
         data[11] = random(140, 155);
-      } else if (k == 3) {
+      } else if (k == 5) {
         data[0] = random(140, 155);
         data[1] = random(140, 155);
         data[2] = random(0, 20);
@@ -110,33 +136,20 @@ void loop() {
         data[9] = random(140, 155);
         data[10] = random(140, 155);
         data[11] = random(140, 155);
-      } else if (k == 4) {
-        data[0] = random(140, 155);
-        data[1] = random(140, 155);
-        data[2] = random(140, 155);
-        data[3] = random(0, 20);
-        data[4] = random(140, 155);
-        data[5] = random(140, 155);
-        data[6] = random(140, 155);
-        data[7] = random(140, 155);
-        data[8] = random(0, 20);
-        data[9] = random(140, 155);
-        data[10] = random(140, 155);
-        data[11] = random(140, 155);
-      } else if (k == 5) {
-        data[0] = random(140, 155);
-        data[1] = random(140, 155);
-        data[2] = random(140, 155);
-        data[3] = random(0, 20);
-        data[4] = random(140, 155);
-        data[5] = random(140, 155);
-        data[6] = random(140, 155);
-        data[7] = random(140, 155);
-        data[8] = random(0, 20);
-        data[9] = random(140, 155);
-        data[10] = random(140, 155);
-        data[11] = random(140, 155);
       } else if (k == 6) {
+        data[0] = random(140, 155);
+        data[1] = random(140, 155);
+        data[2] = random(140, 155);
+        data[3] = random(0, 20);
+        data[4] = random(140, 155);
+        data[5] = random(140, 155);
+        data[6] = random(140, 155);
+        data[7] = random(140, 155);
+        data[8] = random(0, 20);
+        data[9] = random(140, 155);
+        data[10] = random(140, 155);
+        data[11] = random(140, 155);
+      } else if (k == 7) {
         data[0] = random(140, 155);
         data[1] = random(140, 155);
         data[2] = random(140, 155);
@@ -149,7 +162,7 @@ void loop() {
         data[9] = random(0, 20);
         data[10] = random(140, 155);
         data[11] = random(140, 155);
-      } else if (k == 7) {
+      } else if (k == 8) {
         data[0] = random(140, 155);
         data[1] = random(140, 155);
         data[2] = random(140, 155);
@@ -162,7 +175,7 @@ void loop() {
         data[9] = random(140, 155);
         data[10] = random(0, 20);
         data[11] = random(140, 155);
-      } else if (k == 8) {
+      } else if (k == 9) {
         data[0] = random(140, 155);
         data[1] = random(140, 155);
         data[2] = random(0, 20);
@@ -175,33 +188,20 @@ void loop() {
         data[9] = random(140, 155);
         data[10] = random(140, 155);
         data[11] = random(0, 20);
-      } else if (k == 8) {
-        data[0] = random(140, 155);
-        data[1] = random(0, 20);
-        data[2] = random(140, 155);
-        data[3] = random(140, 155);
-        data[4] = random(140, 155);
-        data[5] = random(140, 155);
-        data[6] = random(140, 155);
-        data[7] = random(140, 155);
-        data[8] = random(140, 155);
-        data[9] = random(140, 155);
-        data[10] = random(0, 20);
-        data[11] = random(140, 155);
-      } else if (k == 9) {
-        data[0] = random(140, 155);
-        data[1] = random(0, 20);
-        data[2] = random(140, 155);
-        data[3] = random(140, 155);
-        data[4] = random(140, 155);
-        data[5] = random(140, 155);
-        data[6] = random(140, 155);
-        data[7] = random(140, 155);
-        data[8] = random(140, 155);
-        data[9] = random(140, 155);
-        data[10] = random(0, 20);
-        data[11] = random(140, 155);
       } else if (k == 10) {
+        data[0] = random(140, 155);
+        data[1] = random(0, 20);
+        data[2] = random(140, 155);
+        data[3] = random(140, 155);
+        data[4] = random(140, 155);
+        data[5] = random(140, 155);
+        data[6] = random(140, 155);
+        data[7] = random(140, 155);
+        data[8] = random(140, 155);
+        data[9] = random(140, 155);
+        data[10] = random(0, 20);
+        data[11] = random(140, 155);
+      } else if (k == 11) {
         data[0] = random(0, 20);
         data[1] = random(140, 155);
         data[2] = random(140, 155);
