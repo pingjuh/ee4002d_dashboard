@@ -333,6 +333,7 @@ void loop() {
         data[10] = 155;
         data[11] = 155;
       } else if (k == 101) {
+        // Draw the number '4' on the heatmap
         data[0] = random(140, 155);
         data[1] = random(140, 155);
         data[2] = random(140, 155);

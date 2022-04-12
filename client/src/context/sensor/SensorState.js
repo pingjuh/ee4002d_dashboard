@@ -61,13 +61,13 @@ const SensorState = props => {
       })
       setConnected();
       // Set Heatmap data
-      const lv_0 = 140;
-      const lv_1 = 120;
-      const lv_2 = 100;
-      const lv_3 = 80;
-      const lv_4 = 60;
-      const lv_5 = 40;
-      const lv_6 = 20;
+      const lv_0 = 130;
+      const lv_1 = 110;
+      const lv_2 = 90;
+      const lv_3 = 70;
+      const lv_4 = 50;
+      const lv_5 = 30;
+      const lv_6 = 10;
   
 
       if (data["sensorsReading"][0] < lv_0 && data["sensorsReading"][0] > lv_1 && data["sensorsReading"][5] < lv_0 && data["sensorsReading"][5] > lv_1) setCh0Ch5(1);
